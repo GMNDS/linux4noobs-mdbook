@@ -1,0 +1,2151 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Linux4Noobs</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Intro</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Open source</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="1-OpenSource/1-Distros.html"><strong aria-hidden="true">1.1.</strong> Distros</a></li><li class="chapter-item expanded "><a href="1-OpenSource/2-Aplicativos.html"><strong aria-hidden="true">1.2.</strong> Aplicativos</a></li><li class="chapter-item expanded "><a href="1-OpenSource/3-Licenças.html"><strong aria-hidden="true">1.3.</strong> Licenças</a></li><li class="chapter-item expanded "><a href="1-OpenSource/4-TIC.html"><strong aria-hidden="true">1.4.</strong> TIC</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Linha de comando</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="2-LinhaDeComando/1-Básico.html"><strong aria-hidden="true">2.1.</strong> Básico</a></li><li class="chapter-item expanded "><a href="2-LinhaDeComando/2-Comandos.html"><strong aria-hidden="true">2.2.</strong> Comandos</a></li><li class="chapter-item expanded "><a href="2-LinhaDeComando/3-Navegação.html"><strong aria-hidden="true">2.3.</strong> Navegação</a></li><li class="chapter-item expanded "><a href="2-LinhaDeComando/4-Mover.html"><strong aria-hidden="true">2.4.</strong> Mover</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Linha de comando avançado</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="3-LinhaDeComandoAvançado/1-Arquivamento.html"><strong aria-hidden="true">3.1.</strong> Arquivamento</a></li><li class="chapter-item expanded "><a href="3-LinhaDeComandoAvançado/2-Dados.html"><strong aria-hidden="true">3.2.</strong> Dados</a></li><li class="chapter-item expanded "><a href="3-LinhaDeComandoAvançado/3-ScriptsSimples.html"><strong aria-hidden="true">3.3.</strong> Scripts Simples</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Sistemas Operacionais</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="4-SistemasOperacionais/1-CicloDeVida.html"><strong aria-hidden="true">4.1.</strong> Ciclo de Vida</a></li><li class="chapter-item expanded "><a href="4-SistemasOperacionais/2-ComponentesDeUmComputador.html"><strong aria-hidden="true">4.2.</strong> Componentes de um computador</a></li><li class="chapter-item expanded "><a href="4-SistemasOperacionais/3-Armazenamento.html"><strong aria-hidden="true">4.3.</strong> Armazenamento</a></li><li class="chapter-item expanded "><a href="4-SistemasOperacionais/4-Redes.html"><strong aria-hidden="true">4.4.</strong> Redes</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Segurança</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="5-Segurança/1-Usuários.html"><strong aria-hidden="true">5.1.</strong> Usuários</a></li><li class="chapter-item expanded "><a href="5-Segurança/2-Grupos.html"><strong aria-hidden="true">5.2.</strong> Grupos</a></li><li class="chapter-item expanded "><a href="5-Segurança/3-Manipulação.html"><strong aria-hidden="true">5.3.</strong> Manipulação</a></li><li class="chapter-item expanded "><a href="5-Segurança/4-Permissões.html"><strong aria-hidden="true">5.4.</strong> Permissões</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Linux4Noobs</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introdução"><a class="header" href="#introdução">Introdução</a></h1>
+<p>Esse é um tutorial de linux para iniciantes criado pelos autores abaixo, e apenas portado para usar o mdbook para facilitar a visualização, nenhum texto foi editado.</p>
+<h2 id="autores"><a class="header" href="#autores">Autores</a></h2>
+<p><a href="https://github.com/lucascbittencourt/linux4noobs#autores"></a></p>
+<ul>
+<li>
+<p><strong>Francisco Paradella (Happy)</strong> - <em>Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/Pr1nceJS">Twitter</a></p>
+</li>
+<li>
+<p><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></p>
+</li>
+<li>
+<p><strong>Marco Antonio (Specko)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lolgamarco2">Twitter</a></p>
+</li>
+</ul>
+<p><a href="https://github.com/lucascbittencourt/linux4noobs">Repositório Original</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="distribuições-linux"><a class="header" href="#distribuições-linux">Distribuições Linux</a></h1>
+<p>Sejam bem vindos ao curso de Linux da <a href="1-OpenSource/discord.io/He4rt">He4rt Developers</a>, aqui nos vamos desbravar esse mundo temido por alguns desenvolvedores e amado por muitos. Veremos tópicos que abrangem desde o mais básico da CLI até tópicos avançados como Segurança do Sistemas.</p>
+<p>Para começar preciso explicar uma coisa, o sistemas do Pinguim é um sistema modular, que é composto por varias partes que combinam entre si. Essas partes são compostas desde Softwares que se comunicam com o Hardware diretamente até Interfaces, mas não se assuste, vamos explicar tudo aqui, vamos passar por todos os tópicos abaixo.</p>
+<ul>
+<li>Kernel</li>
+<li>Gerenciador de Pacotes</li>
+<li>Drivers</li>
+<li>Ferramentas GNU</li>
+<li>Shell</li>
+</ul>
+<p>Só para lembrar, coisas como um ambiente Desktop não precisam estar presente em uma distribuição, mas agora vamos lá!</p>
+<h2 id="kernel"><a class="header" href="#kernel">Kernel</a></h2>
+<p>O Kernel é a central do Sistema Operacional da maior parte dos computadores, ele é como se fosse uma ponte que faz a ligação entre os seus aplicativos e o processamento feito no nível de Hardware. As responsabilidades mais básicas do Kernel são; Gerenciamento De Processos, Gerenciamento De Memoria, Gerenciamento De Dispositivos e Chamadas Do Sistema.</p>
+<h2 id="gerenciador-de-pacotes"><a class="header" href="#gerenciador-de-pacotes">Gerenciador De Pacotes</a></h2>
+<p>Resumidamente um gerenciador de pacotes são ferramentas que automatizam o processo de instalação, atualização e remoção de aplicativos de um Sistema Operacional. Suas principais funções são; Verificar checksums, Verificar a assinatura digital e Gerir as dependências para ter certeza de que um pacote vai ter todas as suas dependências necessárias já que instalar um aplicativo funciona de maneira <a href="https://pt.wikipedia.org/wiki/Recursividade_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)">recursiva</a>. Alguns famosos que podemos citar são o Apt, o pacman e o DNF.</p>
+<h2 id="drivers"><a class="header" href="#drivers">Drivers</a></h2>
+<p>A função de um Driver é diminuir a abstração no contexto de Hardware e Software para que o Software não tenha problema ao interagir com o Hardware. Um Driver não é um processo gerado pelo Sistema Operacional, mas sim uma tabela com informações sobre cada periférico. Em resumo, eles são pequenos programas que fazem a comunicação entre o Sistema Operacional e o seu Hardware.</p>
+<h2 id="ferramentas-gnu"><a class="header" href="#ferramentas-gnu">Ferramentas GNU</a></h2>
+<p>As ferramentas GNU fazem parte de um conjunto feito pelo <a href="https://pt.wikipedia.org/wiki/GNU">Projeto GNU</a>, esse conjunto forma um sistema que é usado para desenvolver aplicações e sistemas operacionais. Essas ferramentas são:</p>
+<ul>
+<li>
+<p>GCC, um conjunto de compiladores de linguagens como; Java, C, Fortran e Pascal.</p>
+</li>
+<li>
+<p>GNU make, um utilitário que compila automaticamente programas e bibliotecas.</p>
+</li>
+<li>
+<p>GNU Binutils, um conjunto de ferramentas de programação para criar e gerenciar programas binários, arquivos de objetos, bibliotecas, dados de perfil e código-fonte de montagem.</p>
+</li>
+<li>
+<p>GNU Debugger, mais conhecido por GDB, é um depurador de GNU.</p>
+</li>
+<li>
+<p>GNU Autoconf, é uma ferramenta para a produção de scripts shell.</p>
+</li>
+<li>
+<p>GNU CoreUtils, ferramentas básicas do SO como cat, rm e ls</p>
+</li>
+</ul>
+<h2 id="shell"><a class="header" href="#shell">Shell</a></h2>
+<p>O Shell Do Unix é um interpretador de linha de comando(melhor explicado na proxima parte). O usuário indica a operação do computador pela entrada de comandos para o Shell executar ou então cria scripts de texto ou coisa parecida. Agora no começo não precisa se preocupar muito com isso, mas se você quer dar ao seu terminal uma cara mais bonita vou deixar algumas recomendações abaixo.</p>
+<ul>
+<li>ZSH - Oh My Zsh</li>
+<li>Fish - Oh My Fish</li>
+</ul>
+<p><a href="1-OpenSource/./2-Aplicativos.html">Próximo</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="consciência-das-principais-aplicações-e-seus-usos"><a class="header" href="#consciência-das-principais-aplicações-e-seus-usos">Consciência das principais aplicações e seus usos.</a></h1>
+<p>Agora nos vamos conhecer algumas das aplicações OpenSource mais famosas que transformam o nosso querido Pinguim em um sistema Desktop completo!!.</p>
+<p>O nosso foco vai ser em aplicações OpenSource, mas várias dessas aplicações também vão estar presentes em outras sistemas operacionais. Antes de começarmos em gostaria de explicar um conceito muito importante, que são os <a href="https://pt.wikipedia.org/wiki/Ambiente_de_desktop">Ambientes Gráficos</a>.</p>
+<h2 id="ambientes-gráficos"><a class="header" href="#ambientes-gráficos">Ambientes Gráficos</a></h2>
+<p>Uma das coisas que vai diferenciar bastante o Linux de outros sistemas operacionais é a possibilidade de você poder personalizar o seu sistema da maneria que você gosta, com opções de varios ambientes gráficos e costumizações. Em um grande resumo, o ambiente gráfico é a "cara" do seu Sistema, vou deixar uns exemplos abaixo.</p>
+<h3 id="ubuntu"><a class="header" href="#ubuntu">UBUNTU</a></h3>
+<p>Abaixo por exemplo, nos temos o Ubuntu que usa o <a href="https://pt.wikipedia.org/wiki/GNOME">GNOME</a>.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Ubuntu-19.10-cat.png" alt="Ubuntu Gnome" /></p>
+<h3 id="kubuntu"><a class="header" href="#kubuntu">KUBUNTU</a></h3>
+<p>~~O Bill Gates gosta desse</p>
+<p>Já o Kubuntu usa o <a href="https://pt.wikipedia.org/wiki/KDE">KDE</a>.</p>
+<p><img src="https://www.edivaldobrito.com.br/wp-content/uploads/2019/04/kubuntu-1904-lancado.jpg?ezimgfmt=ng:webp/ngcb2" alt="Kubuntu KDE" /></p>
+<p>E aqui nos temos um ponto para você escolher o Pinguim como seu ambiente desktop, ele é altamente customizado, você consegue fazer tudo da sua maneira, e também ele já vem com varios aplicativos prontos para você usar, os quais vamos citar agora.</p>
+<h2 id="escritório"><a class="header" href="#escritório">Escritório</a></h2>
+<p>Os pacotes de escritório são provavelmente o que um usuario comum vai buscar de um Desktop Linux, mas uma das coisas que mais afastas as pessoas do mundo Linux é o fato de não terem certos aplicativos de maneira nativa para ele, aqui nos poderiamos citar o famoso Microsoft Office, mas o pinguim não fica para tras e também apresentar otimas soluções para quem procura um pacote de aplicativos para escritório, as alternativas mais famosas são:</p>
+<ul>
+<li><a href="https://pt-br.libreoffice.org/">Libre Office</a></li>
+<li><a href="https://www.wps.com/pt-BR/">WPS Office</a></li>
+</ul>
+<h2 id="design-e-multimídia"><a class="header" href="#design-e-multimídia">Design e multimídia</a></h2>
+<p>O famoso Pacote Adobe não esta presente no Linux, mas também temos excelentes alternativas para ele, que vão ser listadas abaixo.</p>
+<h3 id="gimp"><a class="header" href="#gimp"><a href="https://www.gimp.org/">Gimp</a></a></h3>
+<p>Pode se dizer que ele é o "PhotoShop" do Linux, é excelente para edições de imagens e se você já estiver acostumado com o editor da adobe, o Gimp possui alguns plugins para deixar a interface bastante parecida com o PhotoShop.</p>
+<h3 id="inkscape"><a class="header" href="#inkscape"><a href="https://inkscape.org/pt-br/">Inkscape</a></a></h3>
+<p>O Inkscape é a alternativa para o Adobe Illustrator, totalmente OpenSource. Uma otima alternativa para você que quer mostrar seu lado artistico para o mundo.</p>
+<h3 id="audacity"><a class="header" href="#audacity"><a href="https://www.audacityteam.org/">Audacity</a></a></h3>
+<p>Diferente dos outros dois que são alternativas para o excelente trabalho da Adobe, esse editor de áudio é simplesmente o melhor, muito recomendado para você que quer editar seu PodCast ou até mesmo um canal no YouTube.</p>
+<h3 id="blender"><a class="header" href="#blender"><a href="https://www.blender.org/">Blender</a></a></h3>
+<p>Desse aqui você provavelmente já ouviu falar, um dos programas mais conhecidos quando o assunto é modelagem, animação, texturização, composição ou renderização de vídeos.</p>
+<h2 id="internet"><a class="header" href="#internet">Internet</a></h2>
+<p>Aqui nos começamos a voltar mais para o mundo do desenvolvimento, o Linux é muito usado como um servidor Web, e é claro que nesse caso não poderiamos deixar de falar sobre:</p>
+<h3 id="apache"><a class="header" href="#apache"><a href="https://www.apache.org/">Apache</a></a></h3>
+<p>O Apache ou HTTP Daemon Apache, é um servidor web open source criado em 1995.</p>
+<h3 id="postgresql"><a class="header" href="#postgresql"><a href="https://www.postgresql.org/">PostgreSQL</a></a></h3>
+<p>Existem varios bancos de dados para o Linux, um dos mais famosos e o meu xodó é o Postgre.</p>
+<h2 id="conclusão"><a class="header" href="#conclusão">Conclusão</a></h2>
+<p>Eu sei que tanta teoria assim pode parecer bem chato no inicio, mas o mundo Linux é muito grande, e logo vamos começar a ter conteudos mais tecnicos aqui. Nos vemos na proxima parte aonde vamos falar sobre as licenças OpenSource.</p>
+<p><a href="1-OpenSource/./3-Licen%C3%A7as.html">Próximo</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="licenças-open-source"><a class="header" href="#licenças-open-source">Licenças Open-Source</a></h1>
+<p>No  mundo atual, a propriedade de cada cidadão é um tema bem debatido pelas autoridades e pela comunidade. Em Engenharia De Software também não é diferente,  o código open-source atualmente é praticamente a maior fonte de código fonte que temos no mundo, debates surgiram para saber como regularizar essa fonte de informação, e o que fazer em cada caso.</p>
+<p>Um exemplo atualmente seria o Chromium, Chromium é um projeto de navegador open-source, no qual o Google Chrome baseia o seu código fonte, mas, vários outros navegadores que possuem certa rivalidade com o Google Chrome também podem utilizar esse motor, ou base para seus projetos (Brave Browser, por exemplo), então vem o grande debate sobre se eu poderia simplesmente copiar o código de algum aplicativo open-source e vender como se fosse meu. Mas é aqui que entra o papel das licenças Open-Source. As principais seriam: Licença MIT, Apache, GPL(V2 ou V3) e BSD. Todas essas seguem os mesmos princípios.</p>
+<p>1- Software pode ser modificado, usado comercialmente e distribuído.</p>
+<p>2- Software pode ser modificado, e usado de forma privada.</p>
+<p>3- A licença e os direitos precisam ser incluídos no Software.</p>
+<p>4- Os autores dos Software não provêm garantias.</p>
+<p>Todas elas também possuem um aspecto importante em comum: A Open Source Initiative (OSI) aprovaram elas. A OSI foi fundada em 1998 com o intuito de definir o que significa código livre.</p>
+<h2 id="gnu-general-public-licensegpl"><a class="header" href="#gnu-general-public-licensegpl">GNU General Public License(GPL)</a></h2>
+<p>Esta licença deixa o seu código aberto, mas ao mesmo tempo quer ter uma segurança a mais. Das mais famosas é a licença mais restritiva.</p>
+<ul>
+<li>
+<p>O código-fonte deve ser público sempre que uma distribuição do software é feito. Ou seja, se você lançar um produto que é uma modificação de um projeto deste tipo, você precisa tornar o seu código público também.</p>
+</li>
+<li>
+<p>Modificação do Software deve ser lançada sob a mesma licença.</p>
+</li>
+<li>
+<p>Mudanças no código devem ser obrigatoriamente documentadas.</p>
+</li>
+<li>
+<p>Se o material patenteado for usado na criação de software, ele concede aos usuários o direito de usá-lo. Se o usuário processar qualquer pessoa com o uso do material patenteado, eles perderão o direito de usar o software.</p>
+</li>
+</ul>
+<p>Linux, Git e WordPress usam GPL.</p>
+<h2 id="apache-1"><a class="header" href="#apache-1">Apache</a></h2>
+<p>Esta é a licença que o React utilizava até um pouco tempo, ela possui duas versões principais: 2-clause e 3-clause.</p>
+<ul>
+<li>
+<p>O código-fonte não precisa ser necessariamente público quando a distribuição do Software é feita.</p>
+</li>
+<li>
+<p>Modificações podem ser lançadas sob qualquer licença</p>
+</li>
+<li>
+<p>Mudanças feitas no código-fonte não precisam ser documentadas.</p>
+</li>
+<li>
+<p>Não tem nenhuma posição em relação ao uso de patentes</p>
+</li>
+<li>
+<p>A licença e o direito de uso precisam ser incluídos na documentação da versão compilada do código-fonte</p>
+</li>
+<li>
+<p>O BSD-3-clause afirma que os nomes dos autores e colaboradores não podem ser usados para promover produtos derivados do Software sem permissão explícita.</p>
+</li>
+</ul>
+<p>GO, Pure.css e o Sentry usam a licença BSD.</p>
+<h2 id="mit-license"><a class="header" href="#mit-license">MIT LICENSE</a></h2>
+<p>Por fim, a licença MIT. Dentre todas as que listamos, ela é a mais permissiva de todas, além de ser a mais famosa. Comparado às demais, ela oferece pouquíssima proteção aos autores do software. Vamos dar uma olhada nas principais cláusulas.</p>
+<ul>
+<li>
+<p>O código-fonte não precisa ser necessariamente público quando a distribuição do software é feita.</p>
+</li>
+<li>
+<p>Modificação podem ser lançadas sob qualquer licença</p>
+</li>
+<li>
+<p>Mudanças feitas no código-fonte não precisam ser documentadas.</p>
+</li>
+<li>
+<p>Não tem nenhuma posição em relação ao uso de patentes.</p>
+</li>
+</ul>
+<p>jQuerry, Bootstrap e Rails usam a licença MIT.</p>
+<p><img src="https://static.imasters.com.br/wp-content/uploads/2017/10/pinho.jpg" alt="Open" /></p>
+<p><a href="1-OpenSource/./4-TIC.html">Próximo</a></p>
+<h1 id="referências"><a class="header" href="#referências">Referências</a></h1>
+<p>https://medium.freecodecamp.org/how-open-source-licenses-work-and-how-to-add-them-to-your-projects-34310c3cf94</p>
+<p>https://medium.com/code-prestige/como-funcionam-as-licen%C3%A7as-open-source-9ff1da677ccd</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tecnologias-da-informação-e-comunicaçãotic"><a class="header" href="#tecnologias-da-informação-e-comunicaçãotic">Tecnologias Da Informação e Comunicação(Tic)</a></h1>
+<p>Diferente do que muitas pessoas pensam, até esse ponto você já deve saber que o Linux apesar de ser muito bom para servidores não é usado apenas para isso, já que também pode ser um desktop muito poderoso e com diversas opções de uso. Agora vamos falar um pouco mais sobre as famosas Switchs de programas, começando pelo querido Gnome.</p>
+<h2 id="gnome"><a class="header" href="#gnome">Gnome</a></h2>
+<p>O gnome foi um dos primeiros gerenciadores de janela que apareceu no mercado, usando o famoso framework GTK, o uso de memória do Gnome é alto, mas se você tem pelo menos 4gb de ram vai poder usar ele sem nenhuma preocupação. Podemos dizer que as distros mais famosas que usam ele são:</p>
+<ul>
+<li>Fedora</li>
+<li>Debian</li>
+<li>Ubuntu</li>
+<li>Suse</li>
+<li>CentOS</li>
+<li>SteamOS</li>
+</ul>
+<p>O uso de gerenciadores de janelas podem variar de ano para ano, já que as distruibuições estão sempre evoluindo, um exemplo disso seria o Ubuntu que até pouco tempo usava o Unity, e algumas também permitem que você escolha qual quer usar na hora da instalação.</p>
+<h2 id="kde"><a class="header" href="#kde">KDE</a></h2>
+<p>O KDE também é bem antigo, ele usa o framework QT que é um pouco mais pesado que o Gnome(nada que 4GB de ram não resolvam também), hoje em dia eles usam o Plasma, que é uma area de trabalho muito responsiva, e que consegue se adequar a qualquer tipo de tamanho de tela. As principais distribuições que usam o KDE são:</p>
+<ul>
+<li>OpenSuse</li>
+<li>Gentoo</li>
+<li>Fedora</li>
+<li>Kubuntu</li>
+<li>ArchLinux</li>
+</ul>
+<h2 id="xfce"><a class="header" href="#xfce">XFCE</a></h2>
+<p>Agora nos temos o XFCE, que é um dos mais leves e rapidos, geralmente usado em distruibições que tem foco em computadores mais leves, mas o topico mais legal sobre ele é que ele incorpora a filosofia do UNIX tradicional de modularidade e reutilização. As principais distribuiões que usam o XFCE são:</p>
+<ul>
+<li>Mint</li>
+<li>Debian</li>
+<li>ArchLinux</li>
+<li>Manjaro</li>
+</ul>
+<hr />
+<p>É bom lembrar que não existem apenas GNOME, KDE e XFCE, esses são os mais famosos, abaixo vou deixar alguns prints de distribuições para você poder escolher a que mais te agrada.</p>
+<h3 id="opensuse-com-kde"><a class="header" href="#opensuse-com-kde">OpenSuse com KDE</a></h3>
+<p><img src="https://i.ytimg.com/vi/9hUHjQhY9is/maxresdefault.jpg" alt="Suse" /></p>
+<h3 id="ubuntu-1"><a class="header" href="#ubuntu-1">Ubuntu</a></h3>
+<p><img src="https://cdn.arstechnica.net/wp-content/uploads/2018/05/ubuntu1804-files.jpeg" alt="Ubuntu" /></p>
+<h3 id="linux-mint-com-xfce"><a class="header" href="#linux-mint-com-xfce">Linux mint com XFCE</a></h3>
+<p><img src="https://linuxmint-installation-guide.readthedocs.io/pt_BR/latest/_images/cinnamon.png" alt="MINT" /></p>
+<p><a href="1-OpenSource/../2-LinhaDeComando/1-B%C3%A1sico.html">Proximo</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="02---básico"><a class="header" href="#02---básico">02 - Básico</a></h1>
+<h2 id="conteúdo-do-artigo"><a class="header" href="#conteúdo-do-artigo">Conteúdo do artigo</a></h2>
+<p><a href="2-LinhaDeComando/1-B%C3%A1sico.html##Terminal">Terminal</a><br>
+<a href="2-LinhaDeComando/1-B%C3%A1sico.html##Console">Console</a><br>
+<a href="2-LinhaDeComando/1-B%C3%A1sico.html#emulador">Emulador de Terminal</a><br>
+<a href="2-LinhaDeComando/1-B%C3%A1sico.html##Shell">Shell</a><br>
+<a href="2-LinhaDeComando/1-B%C3%A1sico.html#cli">Linha de comandos - CLI</a><br>
+<a href="2-LinhaDeComando/1-B%C3%A1sico.html#Refer%C3%AAncias">Referências</a><br>
+<a href="2-LinhaDeComando/1-B%C3%A1sico.html#Autores">Autores</a></p>
+<hr />
+<p>Antes de entendermos o que é uma linha de comandos é importante nós entendermos os conceitos:</p>
+<h2 id="terminal"><a class="header" href="#terminal">Terminal</a></h2>
+<p>O terminal é um ambiente para entrada e saída de comandos, a palavra terminal também pode significar um dispositivo no qual podemos interagir com o computador, como por exemplo um teclado e monitor. No caso do terminal que estamos habituados ele é um software que emula os terminais tradicionais.</p>
+<p>Exemplo de um terminal tradicional:</p>
+<img style="width:300px;hight:100px;display: block; margin-left:auto; margin-right: auto;" src="2-LinhaDeComando/../images/terminal-televideo.jpg">
+<h2 id="console"><a class="header" href="#console">Console</a></h2>
+<p>O console é um tipo especial de terminal. Geralmente é um painel de controle conectado a um computador. Originalmente um console é um dispositivo eletrônico no qual nos permite controlar um computador, por meio de entrada de texto e saída de vídeo.</p>
+<p>Exemplo de um console tradicional:</p>
+<img style="width:300px;hight:100px;display: block; margin-left:auto; margin-right: auto;" src="2-LinhaDeComando/../images/console-ibm.jpg">
+<p>No linux, nós também temos o console porém geralmente acessamos o console quando temos uma distribuição no modo texto, ou seja, sem interface gráfica.</p>
+<h2 id="emulador"><a class="header" href="#emulador"> Emulador de terminal </a></h2>
+<p>Os terminais em software, também podem ser chamados de pseudo-terminais ou terminais virtuais, são softwares fornecidos por programas, específicos, que são do tipo <em>emulador de terminais</em>, alguns exemplos deles são:</p>
+<ul>
+<li>Xterm</li>
+<li>Konsole</li>
+<li>Gnome Terminal</li>
+<li>Terminator</li>
+<li>Termux</li>
+<li>Sakura</li>
+</ul>
+<h2 id="shell-1"><a class="header" href="#shell-1">Shell</a></h2>
+<p>O shell é um interpretador de linha de comandos. É a interface primária que nós vemos, caso o sistema não possuir interface gráfica, ao fazermos login, e sua função básica é iniciar outros programas e executar comandos. Quando estamos falando de linux, o shell se refere a <em>shell de linha de comandos</em>, alguns exemplos de shells comuns no linux:</p>
+<ul>
+<li>Bash</li>
+<li>csh</li>
+<li>zsh</li>
+<li>fish</li>
+</ul>
+<blockquote>
+<h2 id="cli"><a class="header" href="#cli">Linha de comandos - CLI</a></h2>
+</blockquote>
+<p>Uma linha de comandos, ou CLI que é um acrônimo para <em>command line interface</em>, é uma interface na qual nós podemos digitar comandos e pressionarmos alguma tecla para que o comando seja, de fato, executado. Ou seja, na linha de comando nós não temos botões, menus, mouse, atalhos entre outros itens que possam ser clicados com o mouse.</p>
+<p>Exemplo de uma linha de comando:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$
+</code></pre>
+<p>Quando pressionamos a tecla que faça o nosso comando ser executado, geralmente a tecla <code>enter</code>, o shell captura esse comando, interpreta e executa adequadamente.</p>
+<p>Agora que vimos o que é uma linha de comando e o que é um shell, vamos entender quais são suas diferenças, já que os dois são bem semelhantes.</p>
+<h2 id="shell-vs-linha-de-comandos"><a class="header" href="#shell-vs-linha-de-comandos">Shell vs Linha de comandos</a></h2>
+<p>A <em>linha de comandos</em> não passa de uma interface, na qual, nós escrevemos os comandos. Já o <em>shell</em> é um programa especial que consegue interpretar esse comandos que estamos digitando.</p>
+<h2 id="próximo"><a class="header" href="#próximo"><a href="2-LinhaDeComando/./2-Comandos.html">Próximo</a></a></h2>
+<h2 id="referências-1"><a class="header" href="#referências-1">Referências</a></h2>
+<p><a href="https://www.youtube.com/watch?v=gItWfeDMLVg&amp;list=PLucm8g_ezqNqz-DVT9n_z-XjRkQ03m7U5&amp;index=10&amp;t=0s">Bóson Treinamentos - O que são Terminal, Console, Shell e CLI</a> - Video</p>
+<h2 id="autores-1"><a class="header" href="#autores-1">Autores</a></h2>
+<ul>
+<li><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="02---comandos-básicos"><a class="header" href="#02---comandos-básicos">02 - Comandos básicos</a></h1>
+<h2 id="contéudo-do-artigo"><a class="header" href="#contéudo-do-artigo">Contéudo do artigo</a></h2>
+<p><a href="2-LinhaDeComando/2-Comandos.html#cd">cd</a><br>
+<a href="2-LinhaDeComando/2-Comandos.html#ls">ls</a><br>
+<a href="2-LinhaDeComando/2-Comandos.html#df">df</a><br>
+<a href="2-LinhaDeComando/2-Comandos.html#cat">cat</a><br>
+<a href="2-LinhaDeComando/2-Comandos.html#ps">ps</a><br>
+<a href="2-LinhaDeComando/2-Comandos.html#kill">kill</a><br>
+<a href="2-LinhaDeComando/2-Comandos.html#Refer%C3%AAncias">Referências</a><br>
+<a href="2-LinhaDeComando/2-Comandos.html#Autores">Autores</a></p>
+<hr />
+<blockquote>
+<h2 id="cd"><a class="header" href="#cd">cd</a></h2>
+</blockquote>
+<p>O comando <code>cd</code> é um acrônimo para "change directory" e serve para navegar do diretório atual para outro especificado em seguida.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">cd [diretório]
+</code></pre>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ cd /
+</code></pre>
+<ul>
+<li>O caractere <code>/</code> identifica o diretório raiz do nosso sistema de arquivos.</li>
+</ul>
+<p>Resultado:</p>
+<pre><code class="language-console">lucashe4rt@He4rt:/$
+</code></pre>
+<blockquote>
+<h2 id="ls"><a class="header" href="#ls">ls</a></h2>
+</blockquote>
+<p>Com o comando <code>ls</code> podemos visualizar o conteúdo de um diretório e também informações sobre arquivos, informando dados como nomes de arquivos, permissões, proprietários e datas de criação, além de inúmeras opções para exibir as informações de diversas formas.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">ls [opções]
+</code></pre>
+<p>Algumas opções do <code>ls</code>:</p>
+<ul>
+<li><code>-a</code> - Mostra todos os arquivos, incluindo os ocultos. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ ls -a
+.                .bashrc     .java               .themes     Downloads
+..               .cache      .local              .viminfo    Games
+.ICEauthority    .config     .mozilla            .vscode     Games-Wine
+.PhpStorm2019.3  .eclipse    .mysql_history      .wget-hsts  Images
+.Xauthority      .gitconfig  .node_repl_history  .wine32     aur
+.backgrounds     .gitkraken  .npm                .yarn       go
+.bash_history    .gnome      .pki                .yarnrc
+.bash_logout     .gnupg      .pulse-cookie       Desktop
+.bash_profile    .icons      .swt                Documents
+</code></pre>
+<ul>
+<li><code>-A</code> - Semelhante ao <code>-a</code>, mas não mostra o diretório corrente (<code>.</code>) ou o diretório acima (<code>..</code>). Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ ls -A
+.ICEauthority    .config     .mozilla            .vscode     Games-Wine
+.PhpStorm2019.3  .eclipse    .mysql_history      .wget-hsts  Images
+.Xauthority      .gitconfig  .node_repl_history  .wine32     aur
+.backgrounds     .gitkraken  .npm                .yarn       go
+.bash_history    .gnome      .pki                .yarnrc
+.bash_logout     .gnupg      .pulse-cookie       Desktop
+.bash_profile    .icons      .swt                Documents
+.bashrc          .java       .themes             Downloads
+.cache           .local      .viminfo            Games
+</code></pre>
+<ul>
+<li><code>-i</code> - Mostra o número do inode de cada arquivo na primeira coluna. Exemplo:</li>
+</ul>
+<pre><code class="language-console">1195906 Desktop     660779 Games        396790 aur
+1319602 Documents  2630465 Games-Wine  2890994 go
+1200375 Downloads  1314860 Images
+</code></pre>
+<ul>
+<li><code>-l</code> - Formato longo, mostra permissões, número de links, propietário, grupo, tamanho, data de modificação e nome do arquivo. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ ls -l
+total 1032
+drwxrwxr-x  2 lucashe4rt lucashe4rt    4096 Feb 23 11:57 Desktop
+drwxr-xr-x 13 lucashe4rt lucashe4rt    4096 Feb 29 23:38 Documents
+drwx------  2 lucashe4rt lucashe4rt    4096 Feb 27 15:26 Downloads
+drwxr-xr-x  2 lucashe4rt lucashe4rt    4096 Feb 29 22:27 Games
+drwxr-xr-x  3 lucashe4rt lucashe4rt    4096 Feb 29 22:20 Games-Wine
+drwxr-xr-x  3 lucashe4rt lucashe4rt    4096 Feb 27 22:38 Images
+drwxr-xr-x  3 lucashe4rt lucashe4rt    4096 Feb 23 11:20 aur
+drwxr-xr-x  3 lucashe4rt lucashe4rt    4096 Feb 29 16:37 go
+</code></pre>
+<ul>
+<li><code>-m</code> - Arquivos listados em sequência, separados por vírgula. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ ls -m
+Desktop, Documents, Downloads, Games, Games-Wine, Images, aur, go
+</code></pre>
+<ul>
+<li><code>-n</code> - Semelhante ao <code>-l</code>, porém mostra UID E GID Em vez de nomes de proprietário e grupo. Exemplo:</li>
+</ul>
+<pre><code class="language-console">[23:42:15] lucashe4rt@He4rt:~$ ls -n
+total 36
+drwxrwxr-x  2 1000 1000 4096 Feb 23 11:57 Desktop
+drwxr-xr-x 13 1000 1000 4096 Feb 29 23:38 Documents
+drwx------  2 1000 1000 4096 Feb 27 15:26 Downloads
+drwxr-xr-x  2 1000 1000 4096 Feb 29 22:27 Games
+drwxr-xr-x  3 1000 1000 4096 Feb 29 22:20 Games-Wine
+drwxr-xr-x  3 1000 1000 4096 Feb 27 22:38 Images
+drwxr-xr-x  3 1000 1000 4096 Feb 23 11:20 aur
+drwxr-xr-x  3 1000 1000 4096 Feb 29 16:37 go
+</code></pre>
+<ul>
+<li><code>-o</code> - Semelhante ao <code>-l</code>, porém não mostra o grupo do arquivo. Exemplo:</li>
+</ul>
+<pre><code class="language-console">total 36
+drwxrwxr-x  2 lucashe4rt 4096 Feb 23 11:57 Desktop
+drwxr-xr-x 13 lucashe4rt 4096 Feb 29 23:38 Documents
+drwx------  2 lucashe4rt 4096 Feb 27 15:26 Downloads
+drwxr-xr-x  2 lucashe4rt 4096 Feb 29 22:27 Games
+drwxr-xr-x  3 lucashe4rt 4096 Feb 29 22:20 Games-Wine
+drwxr-xr-x  3 lucashe4rt 4096 Feb 27 22:38 Images
+drwxr-xr-x  3 lucashe4rt 4096 Feb 23 11:20 aur
+drwxr-xr-x  3 lucashe4rt 4096 Feb 29 16:37 go
+</code></pre>
+<ul>
+<li><code>-p</code> - Mostra uma barra(/) na frente de nomes de diretórios. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ ls -p
+Desktop/  Documents/  Downloads/  Games/  Games-Wine/  Images/  aur/  go/
+</code></pre>
+<ul>
+<li><code>-r</code> - Ordem reversa. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ ls -r
+go  aur  Images  Games-Wine  Games  Downloads  Documents  Desktop
+</code></pre>
+<p><em>Nós também podemos juntar os comandos, por exemplo <code>ls -la</code></em>.</p>
+<blockquote>
+<h2 id="df"><a class="header" href="#df">df</a></h2>
+</blockquote>
+<p>O comando <code>df</code> mostra o espaço livre/ocupado de cada partição. Pode ser utilizado junto com várias opções, se for utilizado sozinho, mostrará o espaço usado e disponível de todos os sistemas de arquivos atualmente montados.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">df [opções]
+</code></pre>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+dev              4028428        0   4028428   0% /dev
+run              4036824      892   4035932   1% /run
+/dev/sda1      114041020 10761904  97443136  10% /
+tmpfs            4036824    56924   3979900   2% /dev/shm
+tmpfs            4036824        0   4036824   0% /sys/fs/cgroup
+tmpfs            4036824        4   4036820   1% /tmp
+tmpfs             807364       12    807352   1% /run/user/1001
+</code></pre>
+<p>Algumas opções do  <code>df</code>:</p>
+<ul>
+<li><code>-a</code> - Inclui sistema de arquivos com 0 (zero) blocos. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ df -a
+Filesystem     1K-blocks     Used Available Use% Mounted on
+proc                   0        0         0    - /proc
+sys                    0        0         0    - /sys
+dev              4028428        0   4028428   0% /dev
+run              4036824      892   4035932   1% /run
+/dev/sda1      114041020 10761900  97443140  10% /
+securityfs             0        0         0    - /sys/kernel/security
+tmpfs            4036824    47708   3989116   2% /dev/shm
+devpts                 0        0         0    - /dev/pts
+tmpfs            4036824        0   4036824   0% /sys/fs/cgroup
+cgroup2                0        0         0    - /sys/fs/cgroup/unified
+cgroup                 0        0         0    - /sys/fs/cgroup/systemd
+pstore                 0        0         0    - /sys/fs/pstore
+none                   0        0         0    - /sys/fs/bpf
+cgroup                 0        0         0    - /sys/fs/cgroup/devices
+cgroup                 0        0         0    - /sys/fs/cgroup/hugetlb
+cgroup                 0        0         0    - /sys/fs/cgroup/pids
+cgroup                 0        0         0    - /sys/fs/cgroup/rdma
+cgroup                 0        0         0    - /sys/fs/cgroup/cpuset
+cgroup                 0        0         0    - /sys/fs/cgroup/perf_event
+cgroup                 0        0         0    - /sys/fs/cgroup/net_cls,net_prio
+cgroup                 0        0         0    - /sys/fs/cgroup/freezer
+cgroup                 0        0         0    - /sys/fs/cgroup/cpu,cpuacct
+cgroup                 0        0         0    - /sys/fs/cgroup/blkio
+cgroup                 0        0         0    - /sys/fs/cgroup/memory
+systemd-1              0        0         0    - /proc/sys/fs/binfmt_misc
+mqueue                 0        0         0    - /dev/mqueue
+hugetlbfs              0        0         0    - /dev/hugepages
+debugfs                0        0         0    - /sys/kernel/debug
+configfs               0        0         0    - /sys/kernel/config
+tmpfs            4036824        4   4036820   1% /tmp
+tmpfs             807364       12    807352   1% /run/user/1001
+</code></pre>
+<ul>
+<li><code>-h</code> - Mostra o espaço livre/ocupado em MB, KB, GB em vez de bloco. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+dev             3.9G     0  3.9G   0% /dev
+run             3.9G  892K  3.9G   1% /run
+/dev/sda1       109G   11G   93G  10% /
+tmpfs           3.9G   47M  3.9G   2% /dev/shm
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+tmpfs           3.9G  4.0K  3.9G   1% /tmp
+tmpfs           789M   12K  789M   1% /run/user/1001
+</code></pre>
+<ul>
+<li><code>-k</code> - Lista em Kbyts. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ df -k
+Filesystem     1K-blocks     Used Available Use% Mounted on
+dev              4028428        0   4028428   0% /dev
+run              4036824      892   4035932   1% /run
+/dev/sda1      114041020 10762012  97443028  10% /
+tmpfs            4036824    47692   3989132   2% /dev/shm
+tmpfs            4036824        0   4036824   0% /sys/fs/cgroup
+tmpfs            4036824      100   4036724   1% /tmp
+tmpfs             807364       12    807352   1% /run/user/1001
+</code></pre>
+<ul>
+<li><code>-l</code> - Somente lista sistema de arquivos locais. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ df -l
+Filesystem     1K-blocks     Used Available Use% Mounted on
+dev              4028428        0   4028428   0% /dev
+run              4036824      892   4035932   1% /run
+/dev/sda1      114041020 10761976  97443064  10% /
+tmpfs            4036824    47676   3989148   2% /dev/shm
+tmpfs            4036824        0   4036824   0% /sys/fs/cgroup
+tmpfs            4036824      148   4036676   1% /tmp
+tmpfs             807364       12    807352   1% /run/user/1001
+</code></pre>
+<ul>
+<li><code>-m</code> - Lista em Mbytes. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ df -m
+Filesystem     1M-blocks  Used Available Use% Mounted on
+dev                 3935     0      3935   0% /dev
+run                 3943     1      3942   1% /run
+/dev/sda1         111369 10510     95160  10% /
+tmpfs               3943    47      3896   2% /dev/shm
+tmpfs               3943     0      3943   0% /sys/fs/cgroup
+tmpfs               3943     1      3943   1% /tmp
+tmpfs                789     1       789   1% /run/user/1001
+</code></pre>
+<ul>
+<li><code>-T</code> - Lista o tipo de sistema de arquivos de cada partição. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt:~$ df -T 
+Filesystem     Type     1K-blocks     Used Available Use% Mounted on
+dev            devtmpfs   4028428        0   4028428   0% /dev
+run            tmpfs      4036824      892   4035932   1% /run
+/dev/sda1      ext4     114041020 10761984  97443056  10% /
+tmpfs          tmpfs      4036824    47708   3989116   2% /dev/shm
+tmpfs          tmpfs      4036824        0   4036824   0% /sys/fs/cgroup
+tmpfs          tmpfs      4036824      116   4036708   1% /tmp
+tmpfs          tmpfs       807364       12    807352   1% /run/user/1001
+</code></pre>
+<blockquote>
+<h2 id="cat"><a class="header" href="#cat">cat</a></h2>
+</blockquote>
+<p>O comando <code>cat</code>, derivação da palavra concatenate, permite que a gente crie, una e exiba arquivos no formato padrão de tela ou em outro arquivo, entre outras funcionalidades.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">cat [opção] [arquivo]
+</code></pre>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cat arquivo.txt 
+da estrela ai se vc ta curtindo
+manda pros amigo tb
+vc é d+++
+</code></pre>
+<p>Algumas opções do comando <code>cat</code>:</p>
+<ul>
+<li><code>-E</code> - Marca o término de linha mostrando o caractere <strong>$</strong> ao final de cada uma delas. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cat -E arquivo.txt 
+da estrela ai se vc ta curtindo$
+manda pros amigo tb$
+vc é d+++$
+</code></pre>
+<ul>
+<li><code>-n</code> - Mostra a quantidade de linas do arquivo. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cat -n arquivo.txt 
+     1	da estrela ai se vc ta curtindo
+     2	manda pros amigo tb
+     3	vc é d+++
+</code></pre>
+<ul>
+<li><code>-v</code> - Exibe caracteres não exibíveis. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cat -v arquivo.txt
+da estrela ai se vc ta curtindo
+manda pros amigo tb
+vc M-CM-) d+++
+</code></pre>
+<ul>
+<li><code>-T</code> - Exibe tabulação mostradas como <strong>^I</strong>. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cat -T arquivo.txt
+da estrela ai se vc ta curtindo
+manda pros amigo tb
+vc é d+++
+
+
+
+
+^ISegue o melhor grupo de desenvolvimento lá
+^Ino
+^I
+^Itwitter: @He4rtDevs
+</code></pre>
+<ul>
+<li><code>-s</code> - Remove linhas repetidas em branco. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cat -s arquivo.txt
+da estrela ai se vc ta curtindo
+manda pros amigo tb
+vc é d+++
+
+	Segue o melhor grupo de desenvolvimento lá
+	no
+	
+	twitter: @He4rtDevs
+</code></pre>
+<p><em>Obs: essa opção mantém uma linha vazia e remove as linhas repetidas em branco.</em></p>
+<ul>
+<li><code>-b</code> - Numera as linhas que possuem algum conteúdo. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cat -b arquivo.txt 
+     1	da estrela ai se vc ta curtindo
+     2	manda pros amigo tb
+     3	vc é d+++
+
+
+
+
+     4		Segue o melhor grupo de desenvolvimento lá
+     5		no 
+     6		
+     7		twitter: @He4rtDevs
+</code></pre>
+<p><em>Obs: essa opção sobrescreve a opção <code>-n</code>.</em></p>
+<ul>
+<li><code>tac</code> - Exibe o conteúdo do arquivo em ordem contrária, da primeira à ultima linha. Exemplo:</li>
+</ul>
+<pre><code class="language-console">twitter: @He4rtDevs
+	
+	no
+	Segue o melhor grupo de desenvolvimento lá
+
+
+
+
+vc é d+++
+manda pros amigo tb
+da estrela ai se vc ta curtindo
+</code></pre>
+<blockquote>
+<h2 id="ps"><a class="header" href="#ps">ps</a></h2>
+</blockquote>
+<p>O comando <code>ps</code> exibe informações sobre os processos que estão executando na máquina.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">ps [opções]
+</code></pre>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ps
+    PID TTY          TIME CMD
+  14461 pts/0    00:00:00 bash
+  14466 pts/0    00:00:00 ps
+</code></pre>
+<p>Algumas opções do comando <code>ps</code>:</p>
+<ul>
+<li><code>-a</code> - Mostra os processos de todos os usuários. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ps -a
+    PID TTY          TIME CMD
+  14631 pts/0    00:00:00 ps
+</code></pre>
+<ul>
+<li><code>-A</code> ou <code>-e</code> - Mostra todos os processos. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ps -e
+    PID TTY          TIME CMD
+      1 ?        00:00:01 systemd
+      2 ?        00:00:00 kthreadd
+      3 ?        00:00:00 rcu_gp
+      4 ?        00:00:00 rcu_par_gp
+      6 ?        00:00:00 kworker/0:0H-kblockd
+      8 ?        00:00:00 mm_percpu_wq
+      9 ?        00:00:03 ksoftirqd/0
+     10 ?        00:00:00 rcuc/0
+     11 ?        00:00:14 rcu_preempt
+     12 ?        00:00:00 rcub/0
+     13 ?        00:00:00 migration/0
+     14 ?        00:00:00 idle_inject/0
+     16 ?        00:00:00 cpuhp/0
+     17 ?        00:00:00 cpuhp/1
+     18 ?        00:00:00 idle_inject/1
+     19 ?        00:00:00 migration/1
+     20 ?        00:00:00 rcuc/1
+     21 ?        00:00:03 ksoftirqd/1
+     23 ?        00:00:00 kworker/1:0H-kblockd
+     24 ?        00:00:00 cpuhp/2
+     25 ?        00:00:00 idle_inject/2
+     26 ?        00:00:00 migration/2
+     27 ?        00:00:00 rcuc/2
+  14461 pts/0    00:00:00 bash
+  14721 pts/0    00:00:00 ps
+</code></pre>
+<p><em>obs: eu removi alguns processos para o exemplo não tomar um espaço muito grande na tela.</em></p>
+<ul>
+<li><code>-f</code> - Mostra a árvore de execução de comandos. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+lucashe+   14461   14455  0 11:10 pts/0    00:00:00 bash
+lucashe+   14959   14461  0 11:17 pts/0    00:00:00 ps -f
+</code></pre>
+<ul>
+<li><code>-g [grupo]</code> - Mostra os processos de um determinado grupo. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ps -g lucashe4rt
+    PID TTY          TIME CMD
+    607 ?        00:00:00 systemd
+    608 ?        00:00:00 (sd-pam)
+    614 ?        00:00:03 xfce4-session
+    619 ?        00:00:19 dbus-daemon
+    645 ?        00:00:00 gvfsd
+    650 ?        00:00:00 gvfsd-fuse
+    662 ?        00:00:00 at-spi-bus-laun
+    668 ?        00:00:00 dbus-daemon
+    670 ?        00:00:00 xfconfd
+    676 ?        00:00:01 at-spi2-registr
+    695 ?        00:00:00 ssh-agent
+    698 ?        00:00:01 gpg-agent
+    721 ?        00:21:34 pulseaudio
+    722 ?        00:00:01 xfsettingsd
+    743 ?        00:00:23 xfce4-panel
+    752 ?        00:00:00 Thunar
+    757 ?        00:00:03 xfdesktop
+    768 ?        00:00:04 xfce4-power-man
+    769 ?        00:10:09 pulseeffects
+    772 ?        00:00:00 polkit-gnome-au
+    774 ?        00:00:00 nm-applet
+    781 ?        00:00:03 xfce4-screensav
+    788 ?        00:00:00 gvfs-udisks2-vo
+    796 ?        00:00:01 xfce4-notifyd
+    816 ?        00:00:00 gsettings-helpe
+    834 ?        00:00:00 dconf-service
+    837 ?        00:00:01 panel-6-systray
+    838 ?        00:00:49 panel-8-pulseau
+    839 ?        00:00:00 panel-4-actions
+    840 ?        00:00:01 panel-7-whisker
+   5835 ?        00:02:15 xfwm4
+  14455 ?        00:00:03 xfce4-terminal
+  14461 pts/0    00:00:00 bash
+  15181 pts/0    00:00:00 ps
+</code></pre>
+<ul>
+<li><code>-x</code> - Mostra os processos que não foram iniciados no console. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ps -x
+    PID TTY      STAT   TIME COMMAND
+    607 ?        Ss     0:00 /usr/lib/systemd/systemd --user
+    608 ?        S      0:00 (sd-pam)
+    614 ?        Sl     0:04 xfce4-session
+    619 ?        Ss     0:19 /usr/bin/dbus-daemon --session --address=systemd: -
+    645 ?        Ssl    0:00 /usr/lib/gvfsd
+    650 ?        Sl     0:00 /usr/lib/gvfsd-fuse /run/user/1000/gvfs -f
+    662 ?        Ssl    0:00 /usr/lib/at-spi-bus-launcher
+    668 ?        S      0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defau
+    670 ?        Sl     0:00 /usr/lib/xfce4/xfconf/xfconfd
+    676 ?        Sl     0:01 /usr/lib/at-spi2-registryd --use-gnome-session
+    695 ?        Ss     0:00 /usr/bin/ssh-agent -s
+    698 ?        SLs    0:01 /usr/bin/gpg-agent --supervised
+    721 ?        S&lt;sl  21:42 /usr/bin/pulseaudio --daemonize=no
+    722 ?        Ssl    0:01 xfsettingsd --display :0.0 --sm-client-id 29a399bd9
+    743 ?        Sl     0:24 xfce4-panel --display :0.0 --sm-client-id 26ec8bf39
+    752 ?        Sl     0:00 Thunar --sm-client-id 21fca4347-2f3d-49a9-87bf-6fa9
+    757 ?        Sl     0:03 xfdesktop --display :0.0 --sm-client-id 241e9ced4-5
+    768 ?        Ssl    0:04 xfce4-power-manager --restart --sm-client-id 2b0551
+    769 ?        Sl    10:15 pulseeffects --gapplication-service
+    772 ?        Sl     0:00 /usr/lib/polkit-gnome/polkit-gnome-authentication-a
+    774 ?        Sl     0:00 nm-applet
+    781 ?        Sl     0:03 xfce4-screensaver
+    788 ?        Ssl    0:00 /usr/lib/gvfs-udisks2-volume-monitor
+    796 ?        Ssl    0:01 /usr/lib/xfce4/notifyd/xfce4-notifyd
+    816 ?        Sl     0:00 /usr/lib/pulse/gsettings-helper
+    834 ?        Sl     0:00 /usr/lib/dconf-service
+    837 ?        Sl     0:01 /usr/lib/xfce4/panel/wrapper-2.0 /usr/lib/xfce4/pan
+    838 ?        Sl     0:49 /usr/lib/xfce4/panel/wrapper-2.0 /usr/lib/xfce4/pan
+    839 ?        Sl     0:00 /usr/lib/xfce4/panel/wrapper-2.0 /usr/lib/xfce4/pan
+    840 ?        Sl     0:01 /usr/lib/xfce4/panel/wrapper-2.0 /usr/lib/xfce4/pan
+   5835 ?        Sl     2:20 xfwm4 --display :0.0 --sm-client-id 2bc0df4e4-72f5-
+   6580 ?        Sl     1:02 /usr/lib/firefox/firefox -contentproc -childID 15 -
+  14455 ?        Sl     0:03 xfce4-terminal
+  14461 pts/0    Ss     0:00 bash
+  15533 pts/0    R+     0:00 ps -x
+</code></pre>
+<ul>
+<li><code>-u</code> - Fornece o nome do usuário e a hora de início do processo. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ps -u
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+lucashe+   14461  0.0  0.0   4376  3804 pts/0    Ss   11:10   0:00 bash
+lucashe+   15676  0.0  0.0   5664  2848 pts/0    R+   11:32   0:00 ps -u
+</code></pre>
+<p><em>Obs: podemos combinar as opções como <code>ps -aux</code> que exibe todos os processos do sistema independente de terminal.</em></p>
+<p>Filtrando processos</p>
+<p>Se estiver difícil de encontrar um processo, você pode utilizar o <strong>ps</strong> junto com o <strong>grep</strong>, utilizando o operador <strong>pipe (|)</strong>, onde você irá pegar a saida do comando <em>ps</em> e filtrar com o <em>grep</em></p>
+<p>Como por exemplo quereremos encontar o processo do <em>firefox</em>, então usariamos:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ps aux| grep firefox
+    PID TTY          TIME CMD
+      6 ?        00:00:00 /usr/lib/firefox/firefox
+</code></pre>
+<blockquote>
+<h2 id="kill"><a class="header" href="#kill">kill</a></h2>
+</blockquote>
+<p>O comando <code>kill</code> serve para matarmos processos, ou seja, finalizar tarefas dentro do nosso sistema operacional.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">kill [opções] pid
+</code></pre>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ kill 962
+lucashe4rt@He4rt-PC:~$
+</code></pre>
+<p><em>Acabei de finalizar o processo do discord no meu computador.</em></p>
+<p>Algumas vertentes do comando <code>kill</code>:</p>
+<ul>
+<li><code>pkill</code> - Especificamos o nome do processo ou um padrão para encontrar o processo. Exemplo:</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ pkill firefox
+lucashe4rt@He4rt-PC:~$
+</code></pre>
+<p>ou</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ pkill fire
+lucashe4rt@He4rt-PC:~$
+</code></pre>
+<p><em>Obs: este comando pode encerrar o processo errado, principalmente se exitem vários processos com o mesmo nome.</em></p>
+<ul>
+<li><code>killall</code> - Pode encerrar o processo pelo nome porém só funciona com o nome exato do processo e não com o nome parcial, assim, sendo mais seguro que o <code>pkill</code>.</li>
+</ul>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ killall Discord
+lucashe4rt@He4rt-PC:~$
+</code></pre>
+<p><code>Kill -9</code> e sua diferença entre o <code>kill</code> normal</p>
+<p>Muitas vezes não conseguimos matar o processo quando o programa trava e para termos certeza de que conseguiremos finalizá-lo, forçando a finalização, podemos usar o modificador -9 para o comando kill da seguinte forma:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ kill -9 13421
+lucashe4rt@He4rt-PC:~$
+</code></pre>
+<p>Assim <strong>forçamos</strong> a parada do programa de id <em>13421</em></p>
+<p>A diferença para do kill com e sem o modificador -9 é simples: sem o modificador, o comando solicita o fechamento do programa, dando uma chance para o programa se encerrar sozinho, com o modificador essa chance não existe, o processo é encerrado imediatamente. (Geralmente é usado quando um programa realmente trava de vez e não quer fechar)</p>
+<h2 id="próximo-1"><a class="header" href="#próximo-1"><a href="2-LinhaDeComando/./3-Navega%C3%A7%C3%A3o.html">Próximo</a></a></h2>
+<h2 id="referências-2"><a class="header" href="#referências-2">Referências</a></h2>
+<p><a href="https://www.devmedia.com.br/comandos-importantes-linux/23893">Devmedia - comando importantes linux</a></p>
+<p><a href="https://www.youtube.com/watch?v=BIksX9l1Hvo">Bóson Treinamentos - comando ls</a> - Vídeo</p>
+<p><a href="https://www.vivaolinux.com.br/dica/Usando-o-comando-df">Vivaolinux - usando o comando df</a></p>
+<p><a href="https://www.hostinger.com.br/tutoriais/comando-cat-linux/">Hostinger - comando cat linux</a></p>
+<p><a href="http://guialinux.uniriotec.br/ps/">Guia Linux - ps</a></p>
+<p><a href="https://www.hostinger.com.br/tutoriais/comando-kill-linux/">Hostinger - comando kill linux</a></p>
+<h2 id="autores-2"><a class="header" href="#autores-2">Autores</a></h2>
+<ul>
+<li>
+<p><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></p>
+</li>
+<li>
+<p><strong>Marco Antonio (Specko)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lolgamarco2">Twitter</a></p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="03---navegação"><a class="header" href="#03---navegação">03 - Navegação</a></h1>
+<h2 id="conteúdo-do-artigo-1"><a class="header" href="#conteúdo-do-artigo-1">Conteúdo do artigo</a></h2>
+<p><a href="2-LinhaDeComando/3-Navega%C3%A7%C3%A3o.html#cd">cd</a><br>
+<a href="2-LinhaDeComando/3-Navega%C3%A7%C3%A3o.html#path">Path Absoluto X Path Relativo</a><br>
+<a href="2-LinhaDeComando/3-Navega%C3%A7%C3%A3o.html#pwd">pwd</a><br>
+<a href="2-LinhaDeComando/3-Navega%C3%A7%C3%A3o.html#Refer%C3%AAncias">Referências</a><br>
+<a href="2-LinhaDeComando/3-Navega%C3%A7%C3%A3o.html#Autores">Autores</a></p>
+<hr />
+<p>Os comandos de navegação via linha de comando são de extrema importância para usarmos o sistema pois é desta maneira que conseguimos transitar pela estrutura de diretórios do nosso sistema.</p>
+<blockquote>
+<h2 id="cd-1"><a class="header" href="#cd-1">cd</a></h2>
+</blockquote>
+<p>Este comando, como abordado no artigo passado, serve para fazermos a mudança entre diretórios, ou seja, podemos navegar para qualquer local do sistema.</p>
+<p><em>Obs: como o comando <code>cd</code> ja foi abordado no artigo passado seremos mais diretos e sem muitos exemplos neste artigo.</em></p>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cd Desktop
+lucashe4rt@He4rt-PC:~/Desktop$
+
+lucashe4rt@He4rt-PC:~$ cd /var/cache/
+lucashe4rt@He4rt-PC:/var/cache$
+</code></pre>
+<p>Neste exemplo nós informamos um caminho relativo e um caminho absoluto, explicaremos mais para frente neste mesmo artigo a diferença de um para o outro.</p>
+<p>Para entendermos melhor a navegação vamos ver mais alguns exemplos.</p>
+<ul>
+<li><code>cd ..</code> - O <code>..</code> significa um diretório acima do atual logo esse comando nos permite subir um diretório.</li>
+<li><code>cd ~</code> ou <code>cd</code> - O caractere <code>~</code> faz referência a pasta home do nosso usuário atual então podemos entender que com esse comando nós navegaremos até a home de nosso usuário, porém obtemos o mesmo resultado não passando nenhum parametro ao comando.</li>
+<li><code>cd -</code> - Nos retorna para o último diretório acessado</li>
+<li><code>cd /diretorio</code> - Partindo da raiz até o último diretório passado como referência</li>
+<li><code>cd diretorio</code> - Parte do local corrente até o diretório passado como referência</li>
+</ul>
+<blockquote>
+<h2 id="path"><a class="header" href="#path">Path Absoluto x Path Relativo</a></h2>
+</blockquote>
+<p>O path absoluto, ou caminho absoluto, é o path cujo início é a raiz do sistema, ou seja, o diretório <code>/</code>.</p>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cd /var/log/
+lucashe4rt@He4rt-PC:/var/log$
+</code></pre>
+<p>O path relativo, ou caminho relativo, é aquele que o início é o diretório corrente, ou seja, não precisamos informar o caminho a partir do <code>/</code>.</p>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cd Documents/linuxNoobs/5-Segurança/
+lucashe4rt@He4rt-PC:~/Documents/linuxNoobs/5-Segurança
+</code></pre>
+<blockquote>
+<h2 id="pwd"><a class="header" href="#pwd">pwd</a></h2>
+</blockquote>
+<p>Na maioria dos casos, o terminal, não nos apresenta o local onde está localizada a pasta ou o arquivos podendo nos deixar perdidos dentro do nosso sistema.</p>
+<p>Para evitarmos tendo que ficar subindo diretórios para nos situarmos dentro dos diretórios, nós utilizamos o comando <code>pwd</code>, o nome é um acrônimo para <em>print working directory</em>, que nos informa o diretório corrente, apresentando o caminho desde o diretório raiz até o atual.</p>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ pwd
+/home/lucashe4rt
+lucashe4rt@He4rt-PC:~$
+</code></pre>
+<p><a href="2-LinhaDeComando/./4-Mover.html">Próximo</a></p>
+<hr />
+<h2 id="referências-3"><a class="header" href="#referências-3">Referências</a></h2>
+<p><a href="https://pt.wikibooks.org/wiki/Linux_Essencial/Li%C3%A7%C3%A3o_Navega%C3%A7%C3%A3o_b%C3%A1sica_via_linha_de_comando">Wikibooks - Linux Essencial/Lição Navegação básica via linha de comando</a></p>
+<h2 id="autor"><a class="header" href="#autor">Autor</a></h2>
+<ul>
+<li><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="04---manipulação-de-arquivos-e-diretórios"><a class="header" href="#04---manipulação-de-arquivos-e-diretórios">04 - Manipulação de arquivos e diretórios</a></h1>
+<h2 id="conteúdo-do-artigo-2"><a class="header" href="#conteúdo-do-artigo-2">Conteúdo do artigo</a></h2>
+<p><a href="2-LinhaDeComando/4-Mover.html#Criar">Criar - Arquivos e diretórios</a><br>
+<a href="2-LinhaDeComando/4-Mover.html#Copiar">Copiar - Arquivos e diretórios</a><br>
+<a href="2-LinhaDeComando/4-Mover.html#Mover">Mover - Arquivos e diretórios</a><br>
+<a href="2-LinhaDeComando/4-Mover.html#Remover">Remover - Arquivos e diretórios</a><br>
+<a href="2-LinhaDeComando/4-Mover.html#Refer%C3%AAncias">Referências</a><br>
+<a href="2-LinhaDeComando/4-Mover.html#Autores">Autores</a></p>
+<hr />
+<p>Como sabemos é possivel fazer muitas coisas utilizando a linha de comando, uma das funcionalidades também é a manipulação de arquivos que será abordado neste artigo.</p>
+<blockquote>
+<h2 id="criar"><a class="header" href="#criar">Criar</a></h2>
+</blockquote>
+<h3 id="diretórios"><a class="header" href="#diretórios"><strong>Diretórios</strong></a></h3>
+<p>Para criarmos diretórios utilizamos o comando <code>mkdir</code>, que é um acrônimo para <em>make directory</em>, ele cria novos diretórios em um sistema de arquivos.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">mkdir [opção] diretório
+</code></pre>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ mkdir Exemplo
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Downloads  Games  Images  Documents  Exemplo
+</code></pre>
+<p>Este comando também nos permite criar varios diretórios ao mesmo tempo somente passando o nome dos diretórios seguidos um do outro.</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ mkdir Exemplo2 Exemplo3 Exemplo4
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Downloads  Games  Images  Documents  Exemplo Exemplo2 Exemplo3 Exemplo4
+</code></pre>
+<p>Ele também permite criar uma estrutura de arquivos usando esse mesmo comando passando a opção <code>-p</code>.</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ mkdir -p Exemplo4/Exemplo5/Exemplo6
+lucashe4rt@He4rt-PC:~$ ls Exemplo4
+Exemplo5
+lucashe4rt@He4rt-PC:~$ ls Exemplo4/Exemplo5/
+Exemplo6
+</code></pre>
+<p>No caso acima nós criamos um diretório "pai" (Exemplo5) juntamente com um diretório "filho" (Exemplo6) dentro de outro diretório já existente (Exemplo4).</p>
+<h3 id="arquivos"><a class="header" href="#arquivos"><strong>Arquivos</strong></a></h3>
+<p>O comando <code>touch</code> é muito utilizado para criarmos arquivos vazios porém ele também é capaz de alterar o registro de data e hora de arquivos e pastas mas não nos aprofundaremos nessa funcionalidade dele nesta seção.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">touch [opções] [nome_arquivo]
+</code></pre>
+<p>Vamos criar um arquivo vazio usando o comando <code>touch</code>:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ touch exemplo1.txt
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Downloads  Games  Images  Documents  Exemplo Exemplo2 Exemplo3 Exemplo4
+exemplo1.txt
+</code></pre>
+<p>Este comando também nos permite criar múltiplos arquivos somente passando o nome dos arquivos em seguida um do outro.</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ touch exemplo2.txt  exemplo3.txt
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Downloads  Games  Images  Documents  Exemplo Exemplo2 Exemplo3 Exemplo4
+exemplo1.txt exemplo2.txt  exemplo3.txt
+</code></pre>
+<p><em>Obs: podemos gerar nomes automaticos usando as chaves (<code>{}</code>) enquanto criamos varios arquivos desta maneira <code>touch exemplo{4..6}.txt</code>, este comando irá criar 3 arquivos chamados exemplo4.txt, exemplo5.txt e exemplo6.txt</em>.</p>
+<h4 id="algumas-outras-funcionalidades-do-comando-touch"><a class="header" href="#algumas-outras-funcionalidades-do-comando-touch">Algumas outras funcionalidades do comando touch</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Opção</th><th>Função</th></tr></thead><tbody>
+<tr><td>-a  <em>arquivo.txt</em></td><td>Altera a hora de acesso do arquivo</td></tr>
+<tr><td>-m  <em>arquivo.txt</em></td><td>Altera a hora de modificação do arquivo</td></tr>
+<tr><td>-am <em>arquivo.txt</em></td><td>Altera a hora de acesso e modificação do arquivo</td></tr>
+<tr><td>-c  <em>arquivo.txt</em></td><td>Altera a hora de acesso sem criar um novo arquivo</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<h2 id="copiar"><a class="header" href="#copiar">Copiar</a></h2>
+</blockquote>
+<p>Para copiarmos um arquivo ou um diretório nós usamos o mesmo comando, o <code>cp</code>, que nos permite copiar arquivos ou diretórios para outro local.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">cp [opções] arquivo_origem local_destino
+</code></pre>
+<p>Para copiarmos um arquivo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cp exemplo1.txt exemplo2.txt
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Images  exemplo2.txt Exemplo  Documents  Downloads  exemplo1.txt
+</code></pre>
+<p>Para copiarmos um diretório nós adicionamos a opção <code>-r</code>:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cp -r Exemplo/ Exemplo2/
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Images  exemplo2.txt Exemplo  Exemplo2 Documents  Downloads  exemplo1.txt
+</code></pre>
+<p>Algumas opções comuns do comando <code>cp</code>:</p>
+<div class="table-wrapper"><table><thead><tr><th>Opção</th><th>Função</th></tr></thead><tbody>
+<tr><td>-i</td><td>Pergunta se desejamos sobrescrever um arquivo destino já existente</td></tr>
+<tr><td>-n</td><td>Não sobrescreve um arquivo já existente</td></tr>
+<tr><td>-r, -R</td><td>Copia diretórios de forma recursiva</td></tr>
+<tr><td>-p</td><td>Preserva as permissões originais do arquivo (proprietário, grupo, etc.)</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<h2 id="mover"><a class="header" href="#mover">Mover</a></h2>
+</blockquote>
+<p>Para movermos ou renomearmos um aquivo ou um diretório nós usamos o comando <code>mv</code>.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">mv [opções] arquivos_origem local_destino
+</code></pre>
+<p>Mover um arquivo ou diretório para outro local:</p>
+<pre><code class="language-console"># Movendo um diretório para dentro de outro
+lucashe4rt@He4rt-PC:~$ mv Exemplo2 Exemplo
+lucashe4rt@He4rt-PC:~$ ls Exemplo/
+Exemplo2
+
+# Movendo um arquivo para dentro de um diretório
+lucashe4rt@He4rt-PC:~$ mv exemplo1.txt Exemplo/Exemplo2/
+lucashe4rt@He4rt-PC:~$ ls Exemplo/Exemplo2/
+exemplo1.txt
+</code></pre>
+<p>Renomear um arquivo ou diretório:</p>
+<pre><code class="language-console"># Renomeando um diretório
+lucashe4rt@He4rt-PC:~$ mv Exemplo/Exemplo2/ Exemplo/Linux
+lucashe4rt@He4rt-PC:~$ ls Exemplo/
+Linux
+
+# Renomeando um arquivo
+lucashe4rt@He4rt-PC:~$ mv exemplo2.txt He4rtDevs.txt 
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Images He4rtDevs.txt Exemplo Documents  Downloads
+</code></pre>
+<p>Algumas opções do comando <code>mv</code>:</p>
+<div class="table-wrapper"><table><thead><tr><th>Opção</th><th>Função</th></tr></thead><tbody>
+<tr><td>-b</td><td>Cria um backup de cada arquivo destino existente</td></tr>
+<tr><td>-f</td><td>Apaga destinos existente sem perguntar ao usuário</td></tr>
+<tr><td>-i</td><td>Pergunta se desejamos sobrescrever o arquivo destino já existente</td></tr>
+<tr><td>-n</td><td>Não sobrescrever um arquivo destino já existente</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<h2 id="remover"><a class="header" href="#remover">Remover</a></h2>
+</blockquote>
+<p>Para removermos arquivos e diretórios nós utilizamos o comando <code>rm</code> que nos possibilita excluir diretórios vazios, não vazios e arquivos.</p>
+<p>Sintaxe:</p>
+<p><code>rm [opções] conteudo_excluir</code></p>
+<p>Excluindo arquivos:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ rm He4rtDevs.txt
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Images Exemplo Documents  Downloads
+</code></pre>
+<p>Para excluirmos diretórios nós passamos a opção <code>-r</code>:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ rm -r Exemplo/
+lucashe4rt@He4rt-PC:~$ ls
+Desktop  Images Documents  Downloads
+</code></pre>
+<p>Algumas opções do comando <code>rm</code>:</p>
+<div class="table-wrapper"><table><thead><tr><th>Opção</th><th>Função</th></tr></thead><tbody>
+<tr><td>-f</td><td>Ignora arquivos existentes e não pergunta antes de remover</td></tr>
+<tr><td>-r, -R</td><td>Remove diretórios e seus conteúdo recursivamente</td></tr>
+<tr><td>-d, --dir</td><td>Remove somente diretórios vazios</td></tr>
+<tr><td>-i</td><td>Pergunta se queremos remover o arquivo/diretório antes de excluir</td></tr>
+</tbody></table>
+</div>
+<p><a href="2-LinhaDeComando/../3-LinhaDeComandoAvan%C3%A7ado/1-Arquivamento.html">Próximo</a></p>
+<hr />
+<h2 id="referências-4"><a class="header" href="#referências-4">Referências</a></h2>
+<p><a href="https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-mkdir/">LinuxForce - Comando mkdir</a></p>
+<p><a href="https://www.hostinger.com.br/tutoriais/comando-touch-linux">Hostinger - Comando touch</a></p>
+<p><a href="http://www.bosontreinamentos.com.br/linux/comandos-cp-e-mv-como-copiar-e-mover-arquivos-no-linux/">Bóson Treinamentos - Comando cp e mv</a></p>
+<p><a href="https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-rm/">LinuxForce - Comando rm</a></p>
+<h2 id="autor-1"><a class="header" href="#autor-1">Autor</a></h2>
+<ul>
+<li><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="01---arquivamento-de-arquivos"><a class="header" href="#01---arquivamento-de-arquivos">01 - Arquivamento de arquivos</a></h1>
+<h2 id="conteúdo-do-artigo-3"><a class="header" href="#conteúdo-do-artigo-3">Conteúdo do artigo</a></h2>
+<p><a href="3-LinhaDeComandoAvan%C3%A7ado/1-Arquivamento.html#Compacta%C3%A7%C3%A3o">Compactação</a><br>
+<a href="3-LinhaDeComandoAvan%C3%A7ado/1-Arquivamento.html#Descompacta%C3%A7%C3%A3o">Descompactação</a><br>
+<a href="3-LinhaDeComandoAvan%C3%A7ado/1-Arquivamento.html#Refer%C3%AAncias">Referências</a><br>
+<a href="3-LinhaDeComandoAvan%C3%A7ado/1-Arquivamento.html#Autores">Autores</a></p>
+<hr />
+<p>O arquivamento de arquivos geralmente é utilizado quando queremos copiar alguns diretórios ou transferi-los pela rede. Existem diversos comandos para a execução desta ação, como <a href="http://guialinux.uniriotec.br/gzip/">gzip</a> e <a href="http://guialinux.uniriotec.br/bzip2/">bzip</a> entre outros, porém nesse artigo só abordaremos o comando <code>tar</code>.</p>
+<blockquote>
+<h2 id="compactação"><a class="header" href="#compactação">Compactação</a></h2>
+</blockquote>
+<p>O comando <code>tar</code>, que signfica <em>tape archive</em>, é utilizado para compactação e descompactação de arquivos. Em grande parte dos casos em que compactamos arquivos usando o tar é gerado um arquivo com extensão <strong>.tar</strong>.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">tar [opções] &lt;arquivo.tar&gt; &lt;arquivo&gt;
+</code></pre>
+<p>Exemplo de compactação comum de arquivos:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -cvf exemplo.tar exemplo/
+</code></pre>
+<p>No exemplo acima nós compactamos o diretório <em>exemplo/</em> transformando-o no arquivo <em>exemplo.tar</em></p>
+<p>As opções acima significam:</p>
+<div class="table-wrapper"><table><thead><tr><th>Opção</th><th>Função</th></tr></thead><tbody>
+<tr><td>-c</td><td>cria um novo arquivo .tar</td></tr>
+<tr><td>-v</td><td>mostra uma descrição do progresso de compactação</td></tr>
+<tr><td>-f</td><td>nome do arquivo</td></tr>
+</tbody></table>
+</div>
+<h3 id="criar-arquivos-targz"><a class="header" href="#criar-arquivos-targz">Criar arquivos .tar.gz</a></h3>
+<p>Para maior compactação nós utilizamos o gzip, assim gerando um arquivo <em>.tar.gz</em>.</p>
+<p>Para criarmos um arquivo <em>tar.gz</em> basta somente adicionarmos a opção <code>-z</code> junto as outras. Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -cvzf exemplo.tar.gz exemplo/
+</code></pre>
+<p><em>Obs: a opção -z representa a compressão gzip</em>.</p>
+<h3 id="criar-arquivos-tarbz2"><a class="header" href="#criar-arquivos-tarbz2">Criar arquivos .tar.bz2</a></h3>
+<p>Arquivos <strong>.bz2</strong> nos oferece uma maior compactação quando comparamos com o gzip, no entanto, ele leva mais tempo para compressão e descompactação.</p>
+<p>Para gerarmos um arquivo <em>.tar.bz2</em> adicionamos a opção <code>-j</code> junto as outras. Exemplo:</p>
+<pre><code class="language-console">tar -cvjf exemplo.tar.gz exemplo
+</code></pre>
+<h3 id="adicionar-arquivos-em-um-tar"><a class="header" href="#adicionar-arquivos-em-um-tar">Adicionar arquivos em um .tar</a></h3>
+<p>Nós também podemos inserir arquivos em um .tar mesmo depois de compactado, para isso utilizamos a opção <code>-r</code>.</p>
+<pre><code class="language-console">tar -rvf exemplo.tar.gz exemplo1.txt
+</code></pre>
+<blockquote>
+<h2 id="descompactação"><a class="header" href="#descompactação">Descompactação</a></h2>
+</blockquote>
+<p>Para fazermos a descompactação de arquivos, como dito anteriormente, nós também utilizamos o comando <code>tar</code>.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-console">tar -xvf &lt;arquivo.tar&gt;
+</code></pre>
+<p>Exemplo de descompactação no diretório corrente:</p>
+<pre><code class="language-console">tar -xvf exemplo.tar
+</code></pre>
+<p>Para descompactarmos o arquivo em outro diretório:</p>
+<pre><code class="language-console">tar -xvf exemplo.tar -C ~/Documents/
+</code></pre>
+<p>A opção <code>-C</code> é utilizada para a extração ser feita em outro diretório.</p>
+<h3 id="descompactar-arquivos-targz-tarbz2"><a class="header" href="#descompactar-arquivos-targz-tarbz2">Descompactar arquivos .tar.gz, .tar.bz2</a></h3>
+<p>Para descompactarmos arquivos com essas extensões usamos o mesmo comando com as mesmas opções</p>
+<p>Exemplo:</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -xvf exemplo.tar.gz
+
+
+lucashe4rt@He4rt-PC:~$ tar -xvf exemplo.tar.gz.bz2
+</code></pre>
+<h3 id="descompactar-somente-um-único-item-de-um-tar"><a class="header" href="#descompactar-somente-um-único-item-de-um-tar">Descompactar somente um único item de um .tar</a></h3>
+<h4 id="tar"><a class="header" href="#tar">.tar</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -xvf exemplo.tar exemplo.txt
+</code></pre>
+<h4 id="targz"><a class="header" href="#targz">.tar.gz</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -zxvf exemplo.tar.gz exemplo.txt
+</code></pre>
+<h4 id="tarbz2"><a class="header" href="#tarbz2">.tar.bz2</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -jxvf exemplo.tar.gz exemplo.txt
+</code></pre>
+<h3 id="descompactar-varios-itens-de-um-tar"><a class="header" href="#descompactar-varios-itens-de-um-tar">Descompactar varios itens de um .tar</a></h3>
+<h4 id="tar-1"><a class="header" href="#tar-1">.tar</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -xvf exemplo.tar exemplo.txt exemplo1.txt
+</code></pre>
+<h4 id="targz-1"><a class="header" href="#targz-1">.tar.gz</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -zxvf exemplo.tar.gz exemplo.txt exemplo1.txt
+</code></pre>
+<h4 id="tarbz2-1"><a class="header" href="#tarbz2-1">.tar.bz2</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ tar -jxvf exemplo.tar.gz exemplo.txt exemplo1.txt
+</code></pre>
+<p><a href="3-LinhaDeComandoAvan%C3%A7ado/./1-Arquivamento.html">Próximo</a></p>
+<hr />
+<h2 id="referências-5"><a class="header" href="#referências-5">Referências</a></h2>
+<p><a href="https://www.hostinger.com.br/tutoriais/comando-tar-linux/">Hostinger - Comando Tar</a></p>
+<h2 id="autores-3"><a class="header" href="#autores-3">Autores</a></h2>
+<ul>
+<li><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="condutores-de-redirecionamentos"><a class="header" href="#condutores-de-redirecionamentos">Condutores de Redirecionamentos</a></h1>
+<p>Existem  conceitos no Linux muito importantes, agora vamos falar um pouco sobre cada um.</p>
+<h2 id="entrada-padrão"><a class="header" href="#entrada-padrão">Entrada Padrão</a></h2>
+<p>A entrada padrão é todo o fluxo de dados que serve para dar entrada em um processo ou programa, coisas que vão de um mouse até um editor de texto.</p>
+<h2 id="saida-padrão"><a class="header" href="#saida-padrão">Saida Padrão</a></h2>
+<p>A saida padrão é tudo aquilo que o programa devolve, tudo que processa, coloca na tela ou terminal é a saida padrão, que também pode ser direcionada para um dispositivo, programa ou arquivo.</p>
+<h2 id="saida-de-erro"><a class="header" href="#saida-de-erro">Saida de Erro</a></h2>
+<p>A saida de erro é uma saida especial, o programa pode fazer uma separação entre a saida padrão e a saida de erro, para saber quando mostrar um erro e quando mostrar o conteudo.</p>
+<hr />
+<p>Se você executar o comando abaixo podera ver os 3 conceitos em forma de dispositivos.</p>
+<pre><code class="language-console">ls -l /dev/std*
+</code></pre>
+<p>Os dispositivos que tiverem a referencia 0 vão ser a entrada padrão, os que tiverem a referencia 1 vão ser a saida padrão e os que tiverem a referencia 2 vão ser a saida de erro.</p>
+<pre><code class="language-sql">mysql -uroot -psenha -d banco &lt; sql.txt
+</code></pre>
+<p>Acima nos temos um exemplo de uma entrada padrão, para usar o MySql. Os comandos como ls e etc são uma saida padrão.</p>
+<hr />
+<h1 id="expressões-regulares"><a class="header" href="#expressões-regulares">Expressões Regulares</a></h1>
+<p>Uma expressão regular é um método formal de se especificar um padrão de texto a ser procurado em um ou mais arquivos.</p>
+<p>É uma composição de caracteres com funções especiais, que agrupados entre si com caracteres literais e números, podem formar uma expressão queo shell pode entender e buscar.</p>
+<p>Geralmente elas são usadas para buscar ou validar texto de coisas como:</p>
+<ul>
+<li>Email</li>
+<li>URL</li>
+<li>Data e Hora</li>
+<li>CNPJ, RG, CPF, ETC</li>
+</ul>
+<p>Agora vou resumir um pouco a diferença entre os comandos Grep, Egrep e Fgrep.</p>
+<h2 id="grep"><a class="header" href="#grep">Grep</a></h2>
+<p>Pode ser utilizado para procurar expressões regulares simples .</p>
+<h2 id="egrep"><a class="header" href="#egrep">Egrep</a></h2>
+<p>Pode ser utilizado para procurar expressões regulares simples e avançadas.</p>
+<h2 id="fgrep"><a class="header" href="#fgrep">Fgrep</a></h2>
+<p>Não pode ser usado para procurar expressões regulares, ele serve para fazer busca literais, ele é muito mais rapido se você estiver buscando alguma coisa que não usa expressões regulares.</p>
+<p><a href="3-LinhaDeComandoAvan%C3%A7ado/./3-ScriptsSimples.html">Próximo</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="criando-pequenos-scripts-no-linux"><a class="header" href="#criando-pequenos-scripts-no-linux">Criando pequenos Scripts no Linux</a></h1>
+<h2 id="diretiva"><a class="header" href="#diretiva">Diretiva</a></h2>
+<p>A primeira característica de um script é a diretiva #!, que indica qual é o interpretador que será usado para ler e interpretar o script.
+Para scripts de shell, é comum</p>
+<pre><code class="language-console">#!/bin/bash ou #!/bin/sh
+</code></pre>
+<p>Outros interpretadores podem ser invocados pela linha "#!": #!/usr/bin/perl(no caso da linguagem perl), dentre outros.
+No caso de um script de shell, a linha faz com que um novo processo de shell seja executado para interpretar o script.</p>
+<h2 id="herança"><a class="header" href="#herança">Herança</a></h2>
+<p>Como um novo shell é invocado para interpretar e executar o script, você vai ter herança de variáveis exportadas com o comando</p>
+<pre><code class="language-console">export
+</code></pre>
+<p>do shell pai(chamou o script) e o shell filho(executa o script). A herança é um caminho único de pai para filho. Um script não passa variáveis para o shell pai.</p>
+<h2 id="variáveis-especiais"><a class="header" href="#variáveis-especiais">Variáveis especiais</a></h2>
+<p>Variáveis especiais que podem ser utilizadas:</p>
+<p>$0: Retorna o nome do script que está sendo executado;</p>
+<p>$1-$9: Retorna os parâmetros passados na linha de comando;</p>
+<p>$#: Retorna o número de parâmetros passados;</p>
+<p>$?: Recupera o valor de retorno do último comando;</p>
+<p>$$: Retorna o número do PID do processo em execução.</p>
+<h2 id="test"><a class="header" href="#test">Test</a></h2>
+<p>O comando test é uma ferramenta para testar arquivos, permissões, números, etc. Ele pode testar diversas condições, fornecendo o resultado através da variável de retorno.</p>
+<h2 id="if-test"><a class="header" href="#if-test">If test</a></h2>
+<p>O comando if serve para executar algo SE determinada condição for satisfeita. Mas, diferente da maioria das linguagens como JavaScript, Java, Php, etc o if testa um comando e não uma condição. Para testar condições devemos utilizar o comando test junto com o if. Os colchetes podem usar usados no lugar do comando test. Abaixo algumas condições possíveis:</p>
+<ul>
+<li>-eq Igual</li>
+<li>!= Diferente</li>
+<li>-gt Maior</li>
+<li>-lt Menor</li>
+<li>-d Se o arquivo for um diretório</li>
+<li>-e Se existir o arquivo</li>
+<li>-z Se o arquivo estiver vazio</li>
+<li>-f Se o arquivo contiver algum text</li>
+<li>-o Se o usuário for o dono do arquivo</li>
+<li>-r Se o arquivo pode ser lido</li>
+<li>-w Se o arquivo pode ser alterado</li>
+<li>-x Se o arquivo pode ser executado</li>
+</ul>
+<h2 id="for"><a class="header" href="#for">for</a></h2>
+<p>O comando for permite que laços sejam executados, até que uma determinida variável percorra todos os valores de uma dada lista.</p>
+<h2 id="while"><a class="header" href="#while">while</a></h2>
+<p>O while testa uma expressão até que ela se torne falsa.</p>
+<hr />
+<p>Isso é o basico do ShellScript, uma ferramenta muito poderosa que podemos usar no nosso Pinguim. Se você se interessou e quer virar um Ninja do ShellScript eu recomendo o <a href="https://www.youtube.com/user/ueribeiro/videos">Canal do professor Uirá Ribeiro</a>, e em breve vamos trazer mais conteudos mostrando exemplos praticos de como usar o ShellScript no dia a dia.</p>
+<p><a href="3-LinhaDeComandoAvan%C3%A7ado/../4-SistemasOperacionais/1-CicloDeVida.html">Próximo</a></p>
+<h1 id="refêrencias"><a class="header" href="#refêrencias">Refêrencias</a></h1>
+<p>https://www.youtube.com/user/ueribeiro/videos
+https://www.youtube.com/user/bosontreinamentos</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="diferença-entre-sistemas-operacionais"><a class="header" href="#diferença-entre-sistemas-operacionais">Diferença entre Sistemas Operacionais</a></h1>
+<p>Agora vamos falar um pouco sobre as diferenças entre os sistemas operacionais.</p>
+<h2 id="windows"><a class="header" href="#windows">Windows</a></h2>
+<p>A primeira pergunta a ser respondida é porque o Windows é largamente utilizado. O principal foco disso seria o Software Proprietário, a maioria das empresas que possui um software de gestão, finança, estoque ou coisa do tipo, possuem um software bem antigo que foi criado há muito tempo usando as ferramentas da Microsoft e então só roda no windows, e o segundo ponto disso seria que quando você compra um computador em uma loja ou coisa do tipo, o Windows já vem embutido nele com uma licença com preço bem mais baixo.</p>
+<h2 id="macos"><a class="header" href="#macos">MacOS</a></h2>
+<p>O coração do MacOS é o unix, a estrutura de arquivos, o terminal e coisas do tipo são bem parecidas com ele. Só que a Apple usa Hardware e Softwares proprietários, que são tão bem feitos que acabam criando um ecossistema para o usuario utilizar de forma transparente e suave, o Iphone, Ipad, Ipod, Macbooks e Apple TV foram desenhados para funcionar em conjunto. Aqui no Brasil não é tão usado por causa do alto preço, mas la fora a Maçã é bastante utilizada.</p>
+<h2 id="linux"><a class="header" href="#linux">Linux</a></h2>
+<p>O linux possibilita várias coisas que nem o Windows e nem o MacOS possibilitam, como por exemplo:</p>
+<ul>
+<li>Desktop personalizado e pessoal</li>
+<li>Liberdade para alterar o que quiser</li>
+</ul>
+<p>No primeiro capitulo, citamos o fato de alguns aplicativos não estarem disponiveis para o Linux, o que também ajudou o Windows a se popularizar para ambientes Desktop e coisas do tipo. Só que hoje em dia o cenário é completamente diferente, a maioria das aplicações são feitas para rodarem em nuvem, então você utilizar Linux ou Windows não vai mudar nada, já que tudo vai ser feito no seu Navegador. E é claro, o Linux também pode servir como um servidor web, um banco de dados e qualquer tipo de servidor.</p>
+<h2 id="gui-e-cli"><a class="header" href="#gui-e-cli">GUI e CLI</a></h2>
+<p>Quando estamos comparando os Sistemas Operacionais, também é importante falar sobre a Grafic User Interface e Command Line Interface, a Microsoft sempre foi forte com a sua GUI, enquanto a CLI só começou a ganhar forma nos últimos anos. A GUI da Microsoft até o Windows10 foi o DOS, e atualmente colocaram o PowerShell, aonde é possivel rodar o Windows sem a GUI, apenas com a CLI. Já o Mac sempre manteve muito o seu foco em GUI, aonde tem a melhor do mercado há muito tempo, por outro lado não é possivel rodar o sistema apena pela CLI. E claro, no nosso pinguim é possivelmente alternar sempre o que você quer usar!! Seja GUI ou CLI.</p>
+<h2 id="ciclo-de-manutenção"><a class="header" href="#ciclo-de-manutenção">Ciclo De Manutenção</a></h2>
+<p>Agora vamos falor um pouco sobre os Ciclos De Manutenção.</p>
+<h3 id="microsoft"><a class="header" href="#microsoft">Microsoft</a></h3>
+<p>Em termos de ciclo de manutenção, a Microsoft adota os patchs em formas de updates, aonde eles forçam o usuario a atualizar o sistema.</p>
+<h3 id="macos-1"><a class="header" href="#macos-1">MacOS</a></h3>
+<p>O MacOS também adora o sistema de updates, mas diferente do Windows é muito mais suave e eles não forçam o usuário a atualizar o sistema.</p>
+<h3 id="linux-1"><a class="header" href="#linux-1">Linux</a></h3>
+<p>O ciclo de atualização do linux é bem menor, praticamente você tem um update por semana e as distribuições lançam uma nova versão a cada ano, é bem mais versátil.</p>
+<p><a href="4-SistemasOperacionais/./2-ComponentesDeUmComputador.html">Próximo</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hardware"><a class="header" href="#hardware">Hardware</a></h1>
+<p>Agora nos vamos falar sobre Hardware.</p>
+<h2 id="cpus"><a class="header" href="#cpus">CPUS</a></h2>
+<p><img src="https://http2.mlstatic.com/processador-cpu-amd-athlon-64-x2-am2-21-g-ado4000iaa5dd-D_NQ_NP_610955-MLB31865302667_082019-F.jpg" alt="amd" /></p>
+<p>O primeiro que eu quero falar é a CPU, as CPUS são desenhadas com arquiteturas diferentes, ou seja, a forma que ela vai trabalhar todos os comandos que ela é capaz de fazer. Uma CPU sempre vai lidar com zeros e uns, transformando esse bits em dados diferente, fazendo transformações de dados com operações simples como; subtração, divisão, troca de bytes em espaço de memoria e coisas do tipo, e como ela faz isso vai definir a sua arquitetura, e a sua arquitetura define os comandos. Atualmente os computadores dektops trabalham com uma arquitetura chamada x86, que foi criada pela IBM nos anos 80, e hoje em dia nos temos a Intel e AMD que fazem esses chips. Os celulares utilizam outro tipo de arquitetura, que é chamado de A9 que utilizam outros tipos de Cpus, que são capazes de fazerem coisas diferentes, então o software precisa der compilado para cada tipo de CPU. Para você descobrir qual seu tipo de CPU no linux é facil, basta rodar o comando abaixo.</p>
+<pre><code class="language-shell">cat /proc/cpuinfo |less
+</code></pre>
+<h2 id="memória-ram"><a class="header" href="#memória-ram">Memória RAM</a></h2>
+<p><img src="https://40297.cdn.simplo7.net/static/40297/sku/2148_63dfd212-3fb2-4cf2-a74f-429429dfa15e_909x448.jpg" alt="ram" /></p>
+<p>A memória ram é um dispositivo que pode armazenar dados, e pode mover eles de uma maneira muito rapida, e a cpu só consegue tratar os dados quando eles estão na memória ram, todo hardware tem uma parte que é chamada DNA, então ali a CPU acessa a memória e trata os dados, o comando que usamos no Linux para ver as informações de memória é o Free.</p>
+<pre><code class="language-shell">free
+</code></pre>
+<p>Ele vai mostrar a memoria usada, a memoria disponivel, a memoria compartilhada e a memoria cache, é bom lembrar que a memória ram é volatil, então quando você desliga a maquina todos os dados que estão nela são apagados.</p>
+<h2 id="placa-mãe"><a class="header" href="#placa-mãe">Placa Mãe</a></h2>
+<p><img src="https://images0.kabum.com.br/produtos/fotos/98160/placa-mae-gigabyte-p-intel-lga-1151-atx-z390-gaming-sli-ddr4_1538513261_g.jpg" alt="mae" /></p>
+<p>A placa mãe é aonde você vai encaixar praticamente todos os componentes do seu computador. O comando para você ver todos os componentes conectados na sua Placa Mãe é o dmidecode.</p>
+<pre><code class="language-shell">dmidecode |less
+</code></pre>
+<p>Aqui você vai ter todas as informações da BIOS, que é um programa inicial que é gravado em um chip que fica na mãe e vai dar a carga inicial no computador e conferir todos os dispositivos conectados, e a BIOS depois passa o controle do computador para o gerenciador de boot, que vai carregar o sistema operacional, no nosso caso o KERNEL do Linux. Nos temos também a informação do DNI da placa, que é como ela trabalha com a questão de todos os perifericos, e as informações de todos os slots, voltagens, caches que se tem em cada entrada PCI da sua Placa Mãe.</p>
+<h2 id="fonte"><a class="header" href="#fonte">Fonte</a></h2>
+<p><img src="https://cdn.pichau.com.br/catalog/product/cache/a8a821144233824f257ff007174b65b4/p/g/pg-5001-br2.jpg" alt="Fonte" /></p>
+<p>A fonte de alimentação precisa ser suficiente para abastecer todos seus perifericos, cpus e coisas do tipo. Em servidores é normal você ter varias fontes para caso alguma pare de funcionar, as fontes possuem varios conectores, não só para Placa Mãe, por causa de alguns perifericos que precisam de um conector propio(placas de video por exemplo).</p>
+<h2 id="hd"><a class="header" href="#hd">HD</a></h2>
+<p><img src="https://static3.tcdn.com.br/img/img_prod/374123/17871_1_20161227105914.jpg" alt="HD" /></p>
+<p>Os HDs são a parte do computador onde os dados são armazenados. Diferente de memória ram eles são uma memória não-volátil, ou seja, as informaçãos armazenadas nele não são perdidas quando o computaodr é desligado, atualmente é o principal meio de armazenamento em massa. Nos computadores mais moderno, ele também é usado para expandir a memória RAM, através da gestão de memória virtual. O comando para acessar as informações do seu HD no Linux é o DF.</p>
+<pre><code class="language-shell">df
+</code></pre>
+<p><a href="4-SistemasOperacionais/./3-Armazenamento.html">Próximo</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aonde-estão-os-dados"><a class="header" href="#aonde-estão-os-dados">Aonde estão os dados</a></h1>
+<h2 id="boot"><a class="header" href="#boot">Boot</a></h2>
+<p>Agora vamos falar um pouco sobre aonde estão os dados do seu Sistema. Vamos começar com o diretorio boot, ele é muito importante e geralmente fica em uma partição separada do disco, já que é la que fica o arquivo do Kernel, para acessar ele utlize o comando.</p>
+<pre><code class="language-shell">cd /
+cd boot
+ls
+</code></pre>
+<p>Aqui nos vamos ter um arquivo chamado vmlinuz, esse arquivo é o Kernel do seus sistema, que é carregado pelo gerenciador de boot da maquina e ele é o coração de todoo sistema operacional. Também vamos ter o initramfs, que ajuda o Kernel montando um pseudo sistema de arquivos para poder carregar alguns modulos do Kernel. E por ultimo vamos ter os arquivos do Grub, que é o gerenciador de boot padrão do Linux</p>
+<h2 id="proc"><a class="header" href="#proc">Proc</a></h2>
+<p>Para acessar esse diretorio execute os comandos abaixo.</p>
+<pre><code class="language-shell">cd /
+cd proc
+</code></pre>
+<p>O diretorio proc não existe no disco, ele é um pseudo sistema de arquivos, e o conteudo desse diretorio é o que mantém diversos arquivos de configurações e também informações de funcionamento do Kernel do sistema. Ele cria um numero para cada um dos processos em execução, aonde você pode entrar em cada um para obter informação do programa que está em execução, você também pode entrar no diretorio meminfo para obter infomações de memoria.</p>
+<h2 id="dev"><a class="header" href="#dev">Dev</a></h2>
+<p>Para acessar esse diretorio execute os comandos abaixo.</p>
+<pre><code class="language-shell">cd /
+cd dev
+</code></pre>
+<p>Esse diretorio abriga todos os dispositivos que estão conectados no seu computador, no Linux tudo são arquivos, então ele cria um arquivo para cada disposito que ele reconhecer no seu computador, seja ele um pen drive, moden ou hd externo. É importante falar que os discos SATA são geramente identificados como 'sa', e acabam ficando em uma ordem parecida com</p>
+<ul>
+<li>sda1</li>
+<li>sda 2</li>
+</ul>
+<h2 id="sys"><a class="header" href="#sys">SYS</a></h2>
+<p>Para acessar esse diretorio execute os comandos abaixo.</p>
+<pre><code class="language-shell">cd /
+cd sys
+</code></pre>
+<p>Aqui temos outro pseudo sistema de arquivos muito parecido com Proc. O /sys mantém as informações do sistema , mas organizado por categorias ou tipos. Ele é mantido pelo sistema de reconhecimento de Hardware do Linux.</p>
+<h2 id="log"><a class="header" href="#log">LOG</a></h2>
+<p>Para acessar esse diretorio execute os comandos abaixo.</p>
+<pre><code class="language-shell">cd ../
+cd /var/log
+</code></pre>
+<p>Por ultimo vamos falar sobre log, o linux mantem um sistema de log, aonde se mantem informação sobre o que aconteceu e o que esta acontecendo na maquina. E é aqui aonde os logs do sistema moram, e aqui nos temos um arquivo especial chamado dmesg, que é aonde se tem as mensagens do Kernel, se você der um CAT nele vai ver todas as informações da maquina desde quando ela foi ligada.</p>
+<h1 id="processos"><a class="header" href="#processos">Processos</a></h1>
+<h2 id="pid"><a class="header" href="#pid">PID</a></h2>
+<p>Agora vamos nos aprofundar mais nos processos do Linux, mas antes de falar dos comandos que lidam com esses processos precisamos falar sobre o PID(Process ID), cada processo vai receber um numero de identificação unico, o primeiro processo init/systemd sempre terá o PID1. Para os outros o numero é incrementado quando mais processos vão sendo executados</p>
+<h2 id="user-id-e-groupid"><a class="header" href="#user-id-e-groupid">User ID e GroupID</a></h2>
+<p>Um processo também sempre vai ter um UserID e um GroupID, os processos precisam ser executados com os privilégios de uma conta ou grpo associado a ele, isso é importante pois assim o sistema consegue determinar e gerenciar o acesso aos recursos.</p>
+<h2 id="processo-pai"><a class="header" href="#processo-pai">Processo Pai</a></h2>
+<p>Todos processos menos o init/systemd são executados de forma recursiva, ou seja, possuem um processo pai que vai depender de outro processo e por ai vai. Caso o processo pai termine a execução antes do processo filho, o init/systemd vai "cuidar" do processo filho.</p>
+<h2 id="sinais"><a class="header" href="#sinais">Sinais</a></h2>
+<p>Os sinais são utilizados pelo Kernel, processos ou usuários, para avisar um determinado processo sobre algum evento particular. Eles funcionam como uma "interrupção de software", e com isso os processos tomam alguma ação de acordo com o sinal recebido.</p>
+<h1 id="comandos"><a class="header" href="#comandos">Comandos</a></h1>
+<h2 id="ps-1"><a class="header" href="#ps-1">PS</a></h2>
+<pre><code class="language-shell">ps
+</code></pre>
+<p>Esse comando vai mostrar os processos que estão em execução, pelo seu usuário ou terminal.</p>
+<p>Se você usar o parametro a, ele vai mostrar todos os processos que estão ou não ligados a o seu usuario ou ao terminal.</p>
+<pre><code class="language-shell">ps a
+</code></pre>
+<p>Agora, se você usar o parametro au, ele vai mostrar bem mais informações sobre os processos, mas ainda ligados ao seu usuário.</p>
+<pre><code class="language-shell">ps au
+</code></pre>
+<p>Por ultimo, nos podemos usar o parametro aux, para mostrar todos os processos de todos os usuários e terminais.</p>
+<pre><code class="language-shell">ps aux
+</code></pre>
+<p><a href="4-SistemasOperacionais/./4-Redes.html">Próximo</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linux-na-rede"><a class="header" href="#linux-na-rede">Linux Na Rede</a></h1>
+<h2 id="protocolo-tcpip"><a class="header" href="#protocolo-tcpip">Protocolo TCP/IP</a></h2>
+<p>O TPC/IP é o protocolo padrão de comunicação padrão entre computadores, existem duas versões deste protocolo:</p>
+<ul>
+<li>
+<p>IPv4: Utiliza uma estrutura de endereço formada por 4 octetos contendo números de 0 a -255. Exemplo: 192.168.0.1.</p>
+</li>
+<li>
+<p>IPv6: Utiliza uma estrutura de 128 bits, com notação em Hexadecimal.</p>
+</li>
+</ul>
+<p>Agora vamos falar um pouco sobre o modelo OSI contra o TCP/IP</p>
+<p><img src="https://www.dltec.com.br/blog/wp-content/uploads/2019/02/osi-tcp-ip.png" alt="OSITCP" /></p>
+<p>Do lado direito dessa imagem nos temos o modelo de arquitetura de redes que é o modelo OSI, esse modelo prevê camadas de redes. A ideia é que cada camada forneça serviços de redes para a camada superior, a trilha de protocolo TCP/IP implementou esse modelo de maneira mais simples, agora vamos falar um pouco mais sobre cada uma dessas camadas.</p>
+<h2 id="parte-eletrica-ou-otica"><a class="header" href="#parte-eletrica-ou-otica">Parte eletrica ou otica</a></h2>
+<p>É responsavel por manter um fluxo de bits de forma crua por algum meio, como um cabo de rede.</p>
+<h2 id="interface-com-a-rede"><a class="header" href="#interface-com-a-rede">Interface com a Rede</a></h2>
+<p>Geralmente aqui nos vamos ter um protocolo para a troca de dados(Ethernet).</p>
+<h2 id="protocolo-ip"><a class="header" href="#protocolo-ip">Protocolo IP</a></h2>
+<p>Vai definir os endereços de rede dos dispositivos ligados a essa rede e a forma de como um pacote de dados vai de um remetente para um destinatario.</p>
+<h2 id="transporte"><a class="header" href="#transporte">Transporte</a></h2>
+<p>Aqui trabalham os protocolos de transporte das informações, que é responsavel por como os pacotes são enviados de um remetente para um destinatário. O TCP/IP tem dois protocolos de transporte, o TCP e o UDP.</p>
+<h2 id="aplicação"><a class="header" href="#aplicação">Aplicação</a></h2>
+<p>É nessa camada que os protocolos das aplicações vão trabalhar, como HTTP e etc. Esses protocolos de aplicações dependendo do tipo de comunição que precisam, vão fazer um uso de um protocolo de transporte melhor para as suas necessidades, vamos falar disso agora.</p>
+<h1 id="camadas-do-tcpip"><a class="header" href="#camadas-do-tcpip">Camadas do TCP/IP</a></h1>
+<p><img src="https://infotecnews.com.br/wp-content/uploads/2017/01/camada-tcpip-osi-1.jpg" alt="TCP/IP" /></p>
+<p>Aqui estão as camadas do TCP/IP e os seus protocolos, vamos falar um pouco mais de cada um.</p>
+<h2 id="rede"><a class="header" href="#rede">Rede</a></h2>
+<ul>
+<li>
+<p>ETHERNET: Ethernet é uma arquitetura de interconexão pare redes locais, baseada no envio de pacotes. Ela define cabeamento e sinais elétricos para a camada física em formato de pacotes e protocolos para a subcamada de controle de acesso ao meio(MAC). Desde os anos 90 ela vem sendo a tecnologia de LAN mais amplamente utilizada e tem tomado grande parte do espaço de outros padrões de rede que vamos citar a seguir.</p>
+</li>
+<li>
+<p>Token Ring: Token Ring é um protocolo de rede que opera na camada rede do protocolo TCP/IP. Usa um token, que consiste em uma trama de três bytes,que circula numa topologia em anel em que as estações devem aguardar a sua recepção para transmitir, a transmissão ocorre durante uma pequena janela de tempo, e apenas por quem detém o Token.</p>
+</li>
+<li>
+<p>Frame Relay: É uma tecnologia de comunicação de dados usada para transmitir da maneira rápida e barata(qb) a informação digital através de uma rede de dados, dividindo essas informações em frames a um ou muitos destinos de um end-point.</p>
+</li>
+<li>
+<p>ATM: É projetado para unificar as telecomunicações e as redes de computadores. Ela foi projetada para uma rede que deve manipular tanto tráfego tradicional de dados de altas taxas de transferência, e conteúdo de baixa latência e de tempo real com voz e vídeo.</p>
+</li>
+</ul>
+<h2 id="internet-1"><a class="header" href="#internet-1">Internet</a></h2>
+<ul>
+<li>
+<p>IP: É um protocolo de comunicação usado entre todas as máquinas em rede para encaminhamento de dados.</p>
+</li>
+<li>
+<p>ARP: É um padrão da telecomunicação, é usado para a resolução de enredereços(conversão) da camada de internet em endereços de camada enlace.</p>
+</li>
+<li>
+<p>ICMP: É um protocolo integrande do Protocolo IP, é utilizado para fornecer relatórios de erros à fonte original. Qualquer computador que utilize IP precisa aceitar as mensagens ICMP e alterar o seu comportamento de acordo com o erro relatado. Os gateways devem estar programados para enviar mensagens ICMP quando receberem datagramas que provoquem algum erro.</p>
+</li>
+</ul>
+<h2 id="transporte-1"><a class="header" href="#transporte-1">Transporte</a></h2>
+<p>TCP: É um dos protocolos de comunicação, da camada de transporte, que dão suporte a rede global Internet, verificando se os dados são enviados na sequência correta e sem erros via rede. É complementado pelo protocolo da Internet, normalmente chamado de, TCP/IP.</p>
+<p>UDP: É um protocolo simples, ele é descrito na RFC 768 e permite que a aplicação envia um datagrama encapsulado num pacote IPv4 ou IPv6 a um destino, porém sem qualquer tipo de garantia que o pacote chegue corretamente(ou de qualquer modo). O protocolo UDP não é confiável, caso garantias sejam necessárias, é preciso implementar uma série de estrutura de controle, tais como timeouts, retransmissões, acknowledgments, controle de fluxo, etc.</p>
+<h2 id="aplicação-1"><a class="header" href="#aplicação-1">Aplicação</a></h2>
+<p>HTTP: É um protocolo de comunicação utilizado para sistemas de informação de hipermídia, distribuídos e colaboraticos. Ele é a base para a comunicação e dados na World Wide Web.</p>
+<p>FTP: É um protocolo padrão independente de hardware sobre um modo de transferir arquivos/ficheiros e também é um programa de transfêrencia.</p>
+<p>SMTP: É o protocolo padrão de envio de mensagens de emails através da Internet entre dois dispositivos computacionais, definido na RFC 821.</p>
+<p>DNS: É um sistema hierárquico e distribuído de gestão de nomes para computadores, serviços ou qualquer máquina conectada à Internet ou a uma rede privada.</p>
+<hr />
+<p>Isso é o basico que você precisa pelo menos conhecer sobr redes, se quer aprender mais recomendo o canal <a href="https://www.youtube.com/user/ueribeiro/videos111111111">Certificação Linux</a></p>
+<p><a href="4-SistemasOperacionais/../5-Seguran%C3%A7a/1-Usu%C3%A1rios.html">Próximo</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="01---usuários"><a class="header" href="#01---usuários">01 - Usuários</a></h1>
+<h2 id="contéudo-do-artigo-1"><a class="header" href="#contéudo-do-artigo-1">Contéudo do artigo</a></h2>
+<p><a href="5-Seguran%C3%A7a/1-Usu%C3%A1rios.html#passwd">passwd</a><br>
+<a href="5-Seguran%C3%A7a/1-Usu%C3%A1rios.html#tipos">Tipos de usuários</a><br>
+<a href="5-Seguran%C3%A7a/1-Usu%C3%A1rios.html#grupos">Grupos</a><br>
+<a href="5-Seguran%C3%A7a/1-Usu%C3%A1rios.html#Refer%C3%AAncias">Referências</a><br>
+<a href="5-Seguran%C3%A7a/1-Usu%C3%A1rios.html#Autores">Autores</a></p>
+<hr />
+<p>O Linux é um sistema operacional multi-usuário, ou seja, ele pode ter mais de um usuário conectado ao mesmo tempo e cada um pode se conectar mais de uma vez num mesmo momento. Neste artigo vamos entender alguns conceitos sobre o arquivo <em>passwd</em>, <em>tipos de usuários</em> e <em>grupos</em>.</p>
+<blockquote>
+<h3 id="passwd"><a class="header" href="#passwd">passwd</a></h3>
+</blockquote>
+<p>O arquivo passwd é onde estão armazenadas as principais informações sobre todos os usuários em um sistema Linux. Cada linha desse arquivo é o registro de um usuário do sistema.</p>
+<p><em>Esse arquivo esta localizado em <code>/etc/passwd</code>.</em></p>
+<p>Exemplo do arquivo passwd.</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cd /etc/
+lucashe4rt@He4rt-PC:/etc$ cat passwd
+root:x:0:0::/root:/bin/bash
+bin:x:1:1::/:/usr/bin/nologin
+daemon:x:2:2::/:/usr/bin/nologin
+mail:x:8:12::/var/spool/mail:/usr/bin/nologin
+ftp:x:14:11::/srv/ftp:/usr/bin/nologin
+http:x:33:33::/srv/http:/usr/bin/nologin
+nobody:x:65534:65534:Nobody:/:/usr/bin/nologin
+dbus:x:81:81:System Message Bus:/:/usr/bin/nologin
+systemd-journal-remote:x:982:982:systemd Journal Remote:/:/usr/bin/nologin
+systemd-network:x:981:981:systemd Network Management:/:/usr/bin/nologin
+systemd-resolve:x:980:980:systemd Resolver:/:/usr/bin/nologin
+systemd-timesync:x:979:979:systemd Time Synchronization:/:/usr/bin/nologin
+systemd-coredump:x:978:978:systemd Core Dumper:/:/usr/bin/nologin
+uuidd:x:68:68::/:/usr/bin/nologin
+polkitd:x:102:102:PolicyKit daemon:/:/usr/bin/nologin
+git:x:977:977:git daemon user:/:/usr/bin/git-shell
+lucashe4rt:x:1000:985::/home/lucashe4rt:/bin/bash
+avahi:x:976:976:Avahi mDNS/DNS-SD daemon:/:/usr/bin/nologin
+colord:x:975:975:Color management daemon:/var/lib/colord:/usr/bin/nologin
+usbmux:x:140:140:usbmux user:/:/usr/bin/nologin
+sddm:x:974:974:Simple Desktop Display Manager:/var/lib/sddm:/usr/bin/nologin
+rtkit:x:133:133:RealtimeKit:/proc:/usr/bin/nologin
+mysql:x:973:973:MariaDB:/var/lib/mysql:/usr/bin/nologin
+cups:x:209:209:cups helper user:/:/usr/bin/nologin
+</code></pre>
+<p>Vamos analisar a linha contendo as informações do usuário <em>lucashe4rt</em>.</p>
+<pre><code class="language-console">lucashe4rt:x:1000:1000::/home/lucashe4rt:/bin/bash
+</code></pre>
+<p>Podemos observar que esta linha contém vários campos separados por dois pontos <code>:</code>. Vamos entender melhor cada campo respectivamente.</p>
+<ul>
+<li><strong>lucashe4rt</strong> - nome do usuário na máquina;</li>
+<li><strong>x</strong> - informação utilizada para validar a senha do usuário.
+<ul>
+<li><em>Este campo geralmente é definido por "x" contendo a informação de senha real sendo armazenado em um arquivo de <a href="http://www.bosontreinamentos.com.br/linux/o-arquivo-de-senhas-etc-shadow-no-linux/">senha sombra</a> separado.</em></li>
+</ul>
+</li>
+<li><strong>1000</strong> - número de identificação do usuário. O sistema operacional usa esse número para manter os registros dos arquivos que o usuário possui ou pode acessar;</li>
+<li><strong>985</strong> - número do grupo do usuário.</li>
+<li><strong>/home/lucashe4rt</strong> - diretório base, <em>home</em>, do usuário.</li>
+<li><strong>/bin/bash</strong> - shell padrão.</li>
+</ul>
+<blockquote>
+<h3 id="tipos"><a class="header" href="#tipos"> Tipos de usuários </a></h3>
+</blockquote>
+<h4 id="usuários-comuns"><a class="header" href="#usuários-comuns">Usuários comuns</a></h4>
+<p>São os usuários que podem se conectar no sistema. Geralmente, estes usuários possuem uma <em>home</em> e podem manipular arquivos quando tem as permissões para tal. Porém estes usuários geralmente não tem permissão para certos arquivos e diretórios na maquina e não podem executar muitas funções a nível de sistema.</p>
+<h4 id="usuários-de-sistema"><a class="header" href="#usuários-de-sistema">Usuários de sistema</a></h4>
+<p>Diferente dos usuários comuns, estes usuários não se conectam no sistema. São contas usadas para tarefas específicas dentro do sistema que não são de propriedade de uma pessoa em particular.</p>
+<h4 id="root"><a class="header" href="#root">Root</a></h4>
+<p>O usuário <em>root</em>, também chamado de superusuário, tem controle total sobre o sistema operacional. Ele pode acessar todos os arquivos e normalmente é o único que pode executar certos programas, como por exemplo o httpd.</p>
+<p>Linha referente ao root no arquivo /etc/passwd.</p>
+<pre><code class="language-console">root:x:0:0::/root:/bin/bash
+</code></pre>
+<p><em>obs: a linha de identificação do usuário root é igual a 0. Qualquer conta com a identificação de usuário  igual a 0 é um root, mesmo o nome não sendo root.</em></p>
+<blockquote>
+<h3 id="grupos"><a class="header" href="#grupos">Grupos</a></h3>
+</blockquote>
+<p>Um grupo é um conjunto de um ou mais usuários. É interessante reunir vários usuários em um grupo para definir suas propriedades, como as permissões. Como o arquivo <a href="5-Seguran%C3%A7a/1-Usu%C3%A1rios.html#passwd">passwd</a> nós temos um arquivo somente para armazenar detalhes sobre os grupos.</p>
+<p><em>Esse arquivo esta localizado em <code>/etc/group</code>.</em></p>
+<p>Exemplo do arquivo group.</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ cd /etc/
+lucashe4rt@He4rt-PC:/etc$ cat group
+root:x:0:root
+sys:x:3:bin
+mem:x:8:
+ftp:x:11:
+mail:x:12:
+log:x:19:
+smmsp:x:25:
+proc:x:26:polkitd
+games:x:50:
+lock:x:54:
+network:x:90:
+floppy:x:94:
+scanner:x:96:
+power:x:98:
+adm:x:999:daemon
+kmem:x:997:
+tty:x:5:
+utmp:x:996:
+audio:x:995:
+disk:x:994:
+input:x:993:
+kvm:x:992:
+lp:x:991:cups
+optical:x:990:
+render:x:989:
+storage:x:988:
+uucp:x:987:
+video:x:986:sddm
+users:x:985:lucashe4rt
+systemd-journal:x:984:
+rfkill:x:983:
+bin:x:1:daemon
+daemon:x:2:bin
+http:x:33:
+nobody:x:65534:
+dbus:x:81:
+systemd-journal-remote:x:982:
+systemd-network:x:981:
+systemd-resolve:x:980:
+systemd-timesync:x:979:
+systemd-coredump:x:978:
+uuidd:x:68:
+polkitd:x:102:
+git:x:977:
+lucashe4rt:x:1000:
+avahi:x:976:
+colord:x:975:
+usbmux:x:140:
+sddm:x:974:
+rtkit:x:133:
+mysql:x:973:
+cups:x:209:
+</code></pre>
+<p>Vamos analisar a linha contendo as informações do grupo <em>users</em>.</p>
+<pre><code class="language-console">users:x:985:lucashe4rt
+</code></pre>
+<p>Podemos observar que, assim como no arquivo passwd, esta linha contém vários campos separados por dois pontos <code>:</code>. Vamos entender melhor cada campo respectivamente.</p>
+<ul>
+<li><strong>lucashe4rt</strong> - nome excluisivo do grupo;</li>
+<li><strong>x</strong> - informação utilizada para validar a senha do grupo.
+<ul>
+<li><em>Este campo como esta definido por "x" ele contém a informação de senha real armazenado no arquivo <a href="https://gnulinuxbr.wordpress.com/2009/07/14/arquivo-etcgshadow/">/etc/gshadow</a> separado.</em></li>
+</ul>
+</li>
+<li><strong>985</strong> - número exclusivo de identificação do grupo;</li>
+<li><strong>lucashe4rt</strong> - lista dos nomes dos usuários que pertecem ao grupo.</li>
+</ul>
+<h2 id="próximo-2"><a class="header" href="#próximo-2"><a href="5-Seguran%C3%A7a/./2-Grupos.html">Próximo</a></a></h2>
+<h2 id="referências-6"><a class="header" href="#referências-6">Referências</a></h2>
+<p><a href="https://www.vivaolinux.com.br/artigo/Os-usuarios-do-Linux">Viva o Linux - Os Usuários do Linux</a></p>
+<h2 id="autores-4"><a class="header" href="#autores-4">Autores</a></h2>
+<ul>
+<li><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="02---gerenciamento-de-usuários-e-grupos"><a class="header" href="#02---gerenciamento-de-usuários-e-grupos">02 - Gerenciamento de usuários e grupos</a></h1>
+<h2 id="contéudo-do-artigo-2"><a class="header" href="#contéudo-do-artigo-2">Contéudo do artigo</a></h2>
+<p><a href="5-Seguran%C3%A7a/2-Grupos.html#usuarios">Gerenciamento de usuários</a><br>
+<a href="5-Seguran%C3%A7a/2-Grupos.html#grupos">Gerenciamento de grupos</a><br>
+<a href="5-Seguran%C3%A7a/2-Grupos.html#Refer%C3%AAncias">Referências</a><br>
+<a href="5-Seguran%C3%A7a/2-Grupos.html#Autores">Autores</a></p>
+<hr />
+<blockquote>
+<h3 id="usuarios"><a class="header" href="#usuarios"> Gerenciamento de usuários </a></h3>
+</blockquote>
+<h4 id="adicionar"><a class="header" href="#adicionar">Adicionar</a></h4>
+<p>Criar um usuário novo no Linux é bem simples, apenas é necessário o comando <code>useradd</code> e indicar o nome do novo usuário.</p>
+<p>Sintaxe</p>
+<pre><code class="language-console">useradd [opções] &lt;nomeusuario&gt;
+</code></pre>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo useradd linux4noobs
+</code></pre>
+<p><em>obs: o comando useradd apenas adiciona um novo usuário ao arquivo /etc/passwd, ele não aloca qualquer recurso.</em></p>
+<p>Algumas opções</p>
+<div class="table-wrapper"><table><thead><tr><th>opçao</th><th>função</th></tr></thead><tbody>
+<tr><td>-d</td><td>define o nome do diretório home do usuário (mas não o cria).</td></tr>
+<tr><td>-s</td><td>define o shell padrão do usuário.</td></tr>
+<tr><td>-h</td><td>exibe as opções do comando.</td></tr>
+</tbody></table>
+</div>
+<p>Exemplo usando as opções <strong>-d</strong> e <strong>-s</strong>.</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo useradd -d /home/he4rtdevs -s /bin/bash he4rtdevs
+</code></pre>
+<h4 id="alterar"><a class="header" href="#alterar">Alterar</a></h4>
+<p>Para alterarmos uma conta de usuário basta apenas utilizarmos o comando <code>usermod</code>.</p>
+<p>Sintaxe</p>
+<pre><code class="language-console">usermod [opções] &lt;nomeusuário&gt;
+</code></pre>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo usermod -l linux4he4rt linux4noobs
+</code></pre>
+<p><em>no comando acima alteramos o nome do usuário linux4noobs para linux4he4rt.</em></p>
+<p>Algumas opções</p>
+<div class="table-wrapper"><table><thead><tr><th>opção</th><th>função</th></tr></thead><tbody>
+<tr><td>-d <em>diretório</em> [-m]</td><td>cria uma nova home para o usuário. A opção <strong>-m</strong> move os arquivos da home atual do usuário para a nova.</td></tr>
+<tr><td>-e yyyy-mm-dd</td><td>altera a data de expiração da conta do usuário</td></tr>
+<tr><td>-g <em>grupo</em></td><td>altera o <strong>GID</strong> do grupo do usuário para o especificado.</td></tr>
+<tr><td>-G <em>grupo[, grupo2, ...]</em></td><td>define o <strong>GID</strong> dos outros grupos que o usuário pertence.</td></tr>
+<tr><td>-l <em>nome</em></td><td>altera o nome do usuário (ele não pode estar logado).</td></tr>
+<tr><td>-s <em>shell</em></td><td>altera o shell do usuário.</td></tr>
+<tr><td>-u <em>uid</em></td><td>altera o número de <strong>UID</strong> do usuário</td></tr>
+</tbody></table>
+</div>
+<h4 id="remover-1"><a class="header" href="#remover-1">Remover</a></h4>
+<p>Para removermos um usuário utilizamos o comando <code>userdel</code>.</p>
+<p>Sintaxe</p>
+<pre><code class="language-console">userdel [opções] &lt;nomeusuario&gt;
+</code></pre>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo userdel linux4he4rt
+</code></pre>
+<p>Algumas opções</p>
+<div class="table-wrapper"><table><thead><tr><th>opção</th><th>função</th></tr></thead><tbody>
+<tr><td>-h</td><td>exibe as opções do comando</td></tr>
+<tr><td>-r</td><td>deleta a home e todos os seus arquivos</td></tr>
+</tbody></table>
+</div>
+<h4 id="senha"><a class="header" href="#senha">Senha</a></h4>
+<p>Para congfigurarmos ou alteramos a senha de um usuário utilizamos o comando <code>passwd</code>.</p>
+<p>Sintaxe</p>
+<pre><code class="language-console">passwd [opções] &lt;nomeusuario&gt;
+</code></pre>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo passwd linux4he4rt
+</code></pre>
+<p>Algumas opções</p>
+<div class="table-wrapper"><table><thead><tr><th>opção</th><th>função</th></tr></thead><tbody>
+<tr><td>-l</td><td>Trava a senha do usuário, ficando impedido de se logar e não pode trocar a senha (não é desabilitado).</td></tr>
+<tr><td>-u</td><td>Destrava a senha do usuário.</td></tr>
+<tr><td>-d</td><td>Exclui a senha do usuário.</td></tr>
+<tr><td>-e</td><td>Expira a senha do usuário, forçando-o a fornecer uma nova ao logar-se novamente.</td></tr>
+<tr><td>-x <em>dias</em></td><td>Expira a senha do usuário quando atingir o número de dias especificados.</td></tr>
+<tr><td>-n <em>dias</em></td><td>define a quantidade mínima de dias que o usuário deverá esperar para trocar a senha.</td></tr>
+<tr><td>-w <em>dias</em></td><td>define a quantidade mínima de dias que o usuário receberá o aviso que a senha precisa ser alterada.</td></tr>
+<tr><td>-i</td><td>deixa o usuário inativo, caso a senha tenha expirado.</td></tr>
+<tr><td>-S</td><td>Exibe o status da conta.</td></tr>
+<tr><td>-a</td><td>Usada em conjunto com a opção -S mostra o status das contas de todos os usuários.</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<h3 id="grupos"><a class="header" href="#grupos"> Gerenciamento de grupos </a></h3>
+</blockquote>
+<h4 id="adicionar-1"><a class="header" href="#adicionar-1">Adicionar</a></h4>
+<p>Para criarmos um novo grupo utilizamos o comando <code>groupadd</code>.</p>
+<p>Sintaxe</p>
+<pre><code class="language-console">groupadd [opções] &lt;grupo&gt;
+</code></pre>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo groupadd noobs
+</code></pre>
+<p>Algumas opções</p>
+<div class="table-wrapper"><table><thead><tr><th>opção</th><th>função</th></tr></thead><tbody>
+<tr><td>-g <em>GID</em></td><td>especifica o <strong>GID</strong> do novo grupo (Utilize valores maiores que 500 e que não estejam sendo usados).</td></tr>
+<tr><td>-o <em>GID</em></td><td>atribui um <strong>GID</strong> já utilizado por outro grupo.</td></tr>
+</tbody></table>
+</div>
+<h4 id="mudar-de-grupo"><a class="header" href="#mudar-de-grupo">Mudar de grupo</a></h4>
+<p>Pode ocorrer que um usuário pertença a varios grupos, porém, todas as ações feitas por um usuário são associadas ao seu <strong>UID</strong> E <strong>GID</strong> primários e para mudarmos temporaria mente o grupo principal utiliza-se o comando <code>newgrp</code>.</p>
+<p>Sintaxe</p>
+<pre><code class="language-console">newgrp [-] &lt;grupo&gt;
+</code></pre>
+<p><em>obs: o hífen (<strong>-</strong>) serve para reinicializar as variáveis de ambiente do usuário.</em></p>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo newgrp noobs
+</code></pre>
+<h4 id="remover-2"><a class="header" href="#remover-2">Remover</a></h4>
+<p>Para removermos um grupo utilizamos o comando <code>groupdel</code></p>
+<p>Sintaxe</p>
+<pre><code class="language-console">groupdel &lt;grupo&gt;
+</code></pre>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo groupdel noobs
+</code></pre>
+<p><em>Obs: Não se deve remover o grupo primário de um grupo de usuários existentes. Deve-se antes remover os usuários, para então remover o grupo.</em></p>
+<h2 id="próximo-3"><a class="header" href="#próximo-3"><a href="5-Seguran%C3%A7a/./3-Manipula%C3%A7%C3%A3o.html">Próximo</a></a></h2>
+<h2 id="referências-7"><a class="header" href="#referências-7">Referências</a></h2>
+<p><a href="http://guialinux.uniriotec.br/useradd/">Guia Linux - useradd</a><br>
+<a href="http://guialinux.uniriotec.br/usermod/">Guia Linux - usermod</a><br>
+<a href="http://guialinux.uniriotec.br/userdel/">Guia Linux - userdel</a><br>
+<a href="http://www.bosontreinamentos.com.br/linux/38-gerenciamento-de-usuarios-e-grupos-05-alterar-senhas-comando-passwd/">Bóson treinamentos - comando   passwd</a><br>
+<a href="https://www.vivaolinux.com.br/artigo/Fundamentos-do-sistema-Linux-usuarios-e-grupos/?pagina=4">Viva o Linux - Fundamentos do sistema Linux - usuários e grupos</a></p>
+<h2 id="autores-5"><a class="header" href="#autores-5">Autores</a></h2>
+<ul>
+<li><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="03---manipulação-de-permissões"><a class="header" href="#03---manipulação-de-permissões">03 - Manipulação de permissões</a></h1>
+<h2 id="contéudo-do-artigo-3"><a class="header" href="#contéudo-do-artigo-3">Contéudo do artigo</a></h2>
+<p><a href="5-Seguran%C3%A7a/3-Manipula%C3%A7%C3%A3o.html#donos">Donos, grupos e usuários</a><br>
+<a href="5-Seguran%C3%A7a/">Tipos de permissão</a><br>
+<a href="5-Seguran%C3%A7a/3-Manipula%C3%A7%C3%A3o.html#Refer%C3%AAncias">Referências</a><br>
+<a href="5-Seguran%C3%A7a/3-Manipula%C3%A7%C3%A3o.html#Autores">Autores</a></p>
+<hr />
+<p>As permissões dentro de um sistema Linux protegem os arquivos e diretórios do acesso indeviduo ou não autorizado de algum usuário. São as permissões que impedem que algum software malicioso cause estragos no nosso sistema. Vamos entender algumas coisas sobre permissões.</p>
+<blockquote>
+<h3 id="donos-grupos-e-usuários"><a class="header" href="#donos-grupos-e-usuários"><span id="donos"> Donos, Grupos e usuários </span></a></h3>
+</blockquote>
+<p>O princípio da segurança do nosso sistema de arquivos Linux é definir o acesso aos arquivos por donos, grupos e usuários.</p>
+<ul>
+<li>
+<p><strong>Dono</strong></p>
+<ul>
+<li>É o usuário no qual criou o arquivo ou diretório.</li>
+</ul>
+</li>
+<li>
+<p><strong>Grupo</strong></p>
+<ul>
+<li>Permite que os usuários do grupo tenham acesso ao arquivo/diretório.</li>
+</ul>
+</li>
+<li>
+<p><strong>Outro usuários</strong></p>
+<ul>
+<li>Usuários que não são donos ou não pertecem ao grupo do arquivo/diretório.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="tipos-de-permissão"><a class="header" href="#tipos-de-permissão">Tipos de permissão</a></h3>
+</blockquote>
+<p>Dentro do sistema linux nós temos 3 tipos de permissões básicas:</p>
+<div class="table-wrapper"><table><thead><tr><th>Permissão</th><th>Descrição</th></tr></thead><tbody>
+<tr><td>r</td><td>Permissão de leitura para arquivos e permissão pra listar conteúdo do diretórios.</td></tr>
+<tr><td>w</td><td>Permissão para gravação de arquivos e permite criar arquivos e diretórios caso for um diretório.</td></tr>
+<tr><td>x</td><td>Permite execução de um arquivo (se for um arquivo executavel) e caso for um diretório permite o acesso.</td></tr>
+</tbody></table>
+</div>
+<p>Nós conseguimos ver as permissões utilizando o comando <strong>ls -l</strong></p>
+<pre><code class="language-console">drwxr-xr-x 16 lucashe4rt lucashe4rt      4096 Mar 15 14:11 Documents
+</code></pre>
+<p>Da esquerda pra direita nós temos as permissões do <strong>dono</strong>, <strong>grupo</strong> e outros usuários respectivamente. Logo em seguida temos o <strong>dono</strong> do diretório e o <strong>grupo</strong> respectivamente.</p>
+<div class="table-wrapper"><table><thead><tr><th>Nome</th><th>Permissão</th></tr></thead><tbody>
+<tr><td>Dono</td><td>rwx</td></tr>
+<tr><td>Grupo</td><td>r-x</td></tr>
+<tr><td>Outros</td><td>r-x</td></tr>
+</tbody></table>
+</div><br>
+<div class="table-wrapper"><table><thead><tr><th>Função</th><th>Nome</th></tr></thead><tbody>
+<tr><td>Dono</td><td>lucashe4rt</td></tr>
+<tr><td>Grupo</td><td>lucashe4rt</td></tr>
+</tbody></table>
+</div>
+<p>Desta maneira podemos entender que o <strong>dono</strong> tem acesso total ao diretório, o <strong>grupo</strong> tem acesso de <em>leitura</em> e <em>acesso</em> (acesso pois é um diretório), e <strong>outros usuários</strong> também tem permissão de <em>leitura</em> e <em>acesso</em>.</p>
+<blockquote>
+<h3 id="etapas-para-o-acesso-ao-arquivodiretório"><a class="header" href="#etapas-para-o-acesso-ao-arquivodiretório">Etapas para o acesso ao arquivo/diretório</a></h3>
+</blockquote>
+<p>Para o acesso a um arquivo ou diretório da seguinte forma:</p>
+<ol>
+<li>
+<p>Verifica-se primeiro se o usuário que está acessará o arquivo é o dono, caso seja as permissões destinadas ao dono são aplicadas.</p>
+</li>
+<li>
+<p>Se não for dono do arquivo/diretório, verifica-se o grupo do arquivo e do usuário caso pertençam ao mesmo grupo as permissões referente ao grupo são aplicadas.</p>
+</li>
+<li>
+<p>Se não pertencer ao grupo é verificado as permissões de acesso para os outros usuários e aplicadas.</p>
+</li>
+</ol>
+<blockquote>
+<h3 id="alterar-permissões"><a class="header" href="#alterar-permissões">Alterar permissões</a></h3>
+</blockquote>
+<p>Alterar permissões de acesso a um arquivo ou diretório é bem simples, basta usar o comando <code>chmod</code>.</p>
+<p>Sintaxe</p>
+<pre><code class="language-console">chmod [opções] [permissões] &lt;arquivo/diretório&gt;
+</code></pre>
+<p>O sistema entende com as indicações de usuários, grupo e outros usuários pelas letras <em>u</em>, <em>g</em> e <em>o</em> respectivamente e os simbolos <em>+</em> e <em>-</em> para adicinar ou remover as permissões.</p>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ chmod g+x arquivo.txt
+lucashe4rt@He4rt-PC:~$ ls -l arquivo.txt
+-rwxr-xr-- 1 lucashe4rt lucashe4rt 0 Mar 17 21:57 arquivo.txt
+</code></pre>
+<p>Como podemos perceber a permissão de execução daquele arquivo foi concedida ao grupo no qual o arquivo pertence.</p>
+<h4 id="permissões-octal"><a class="header" href="#permissões-octal">Permissões octal</a></h4>
+<p>Nós também podemos alterar as permissões de acesso utilizando o modo octal, que é um conjunto de oito números onde cada número define um tipo de acesso diferente, ao invés de utilizar +x, -x, etc.</p>
+<p>Tabela com as permissões em octal</p>
+<div class="table-wrapper"><table><thead><tr><th>Octal</th><th>Permissão</th></tr></thead><tbody>
+<tr><td>0</td><td>Nenhuma (-rwx)</td></tr>
+<tr><td>1</td><td>Execução (x)</td></tr>
+<tr><td>2</td><td>Escrita (w)</td></tr>
+<tr><td>3</td><td>Escrita + Execução (wx)</td></tr>
+<tr><td>4</td><td>Leitura (r)</td></tr>
+<tr><td>5</td><td>Leitura + Execução (rx)</td></tr>
+<tr><td>6</td><td>Leitura + Escrita (rw)</td></tr>
+<tr><td>7</td><td>Todas (+rwx)</td></tr>
+</tbody></table>
+</div>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ chmod 701 arquivo.txt
+lucashe4rt@He4rt-PC:~$ ls -l
+-rwx-----x  1 lucashe4rt lucashe4rt         0 Mar 17 21:57 arquivo.txt
+</code></pre>
+<p>O primeiro número é destinado ao dono, o segundo ao grupo e o terceiro aos outros usuários, logo nesse exemplo nós demos todas as permissões ao dono, nenhuma ao grupo e execução para outros usuários.</p>
+<blockquote>
+<h3 id="alterar-dono-ou-grupo"><a class="header" href="#alterar-dono-ou-grupo">Alterar dono ou grupo</a></h3>
+</blockquote>
+<p>Para alterarmos o dono ou grupo do arquivo/diretório também é bem simples! Nós utilizamos o comando <code>chown</code> para esta ação.</p>
+<p>Sintaxe</p>
+<pre><code class="language-console">chown [opções] &lt;dono/grupo&gt; &lt;diretório/arquivo&gt;
+</code></pre>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chown root arquivo.txt
+lucashe4rt@He4rt-PC:~$ ls -l
+-rwx-----x  1 root       lucashe4rt         0 Mar 17 21:57 arquivo.txt
+</code></pre>
+<p>Como é possivel perceber trocamos o dono do arquivo para o usuário <em>root</em>.</p>
+<p>Algumas opções do comando</p>
+<div class="table-wrapper"><table><thead><tr><th>Opção</th><th>Função</th></tr></thead><tbody>
+<tr><td>-R</td><td>inclui os sub-diretórios caso seja um diretório</td></tr>
+<tr><td>-c</td><td>Exibe o resultado</td></tr>
+</tbody></table>
+</div>
+<p>Para alterarmos o grupo do arquivo ou diretório a sintaxe é a seguinte.</p>
+<pre><code class="language-console">chown [opções] dono:grupo &lt;arquivo/diretório&gt;
+</code></pre>
+<p>Exemplo</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chown root:root arquivo.txt
+lucashe4rt@He4rt-PC:~$ ls -l
+-rwx-----x  1 root       root               0 Mar 17 21:57 arquivo.txt
+</code></pre>
+<h2 id="próximo-4"><a class="header" href="#próximo-4"><a href="5-Seguran%C3%A7a/./4-Permiss%C3%B5es.html">Próximo</a></a></h2>
+<h2 id="referências-8"><a class="header" href="#referências-8">Referências</a></h2>
+<p><a href="https://docente.ifrn.edu.br/filiperaulino/disciplinas/introducao-a-sistemas-abertos/aulas/">IFRN - Linux 04</a></p>
+<h2 id="autores-6"><a class="header" href="#autores-6">Autores</a></h2>
+<ul>
+<li><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="03---permissões-especiais"><a class="header" href="#03---permissões-especiais">03 - Permissões especiais</a></h1>
+<h2 id="contéudo-do-artigo-4"><a class="header" href="#contéudo-do-artigo-4">Contéudo do artigo</a></h2>
+<p><a href="5-Seguran%C3%A7a/4-Permiss%C3%B5es.html#Introdu%C3%A7%C3%A3o">Introdução</a><br>
+<a href="5-Seguran%C3%A7a/4-Permiss%C3%B5es.html#suid">SUID</a><br>
+<a href="5-Seguran%C3%A7a/4-Permiss%C3%B5es.html#sgid">SGID</a><br>
+<a href="5-Seguran%C3%A7a/4-Permiss%C3%B5es.html#sticky">Sticky</a><br>
+<a href="5-Seguran%C3%A7a/4-Permiss%C3%B5es.html#Refer%C3%AAncias">Referências</a><br>
+<a href="5-Seguran%C3%A7a/4-Permiss%C3%B5es.html#Autores">Autores</a></p>
+<hr />
+<blockquote>
+<h3 id="introdução-1"><a class="header" href="#introdução-1">Introdução</a></h3>
+</blockquote>
+<p>Somente as permissões básicas não dão toda a flexibilidade que precisamos para controlar o acesso a diretórios e arquivos, por este motivo nós temos mais três modelos especiais de permissões para o controle de acesso, o <strong>suid</strong> (set user id), <strong>sgid</strong> e <strong>Sticky</strong> (Sticky bit).</p>
+<p>Exemplo de permissão especial</p>
+<img style="width:375px;display: block; margin-left:auto; margin-right: auto;" src="5-Segurança/../images/perm_espec.png">
+<blockquote>
+<h3 id="suid-set-user-id"><a class="header" href="#suid-set-user-id"><span id="suid">SUID (Set User ID)</span></a></h3>
+</blockquote>
+<p>O <em>SUID</em> é utilizado somente para arquivos executaveis e não se aplica a diretórios.</p>
+<p>Nas permissões básicas, o usuário que executou o programa é dono do processo. Mas em arquivo executável com a propriedade SUID aplicada, o programa rodará com o ID do dono do arquivo, não com o ID do usuário que executou o programa.</p>
+<p>A permissão de acesso especial SUID pode aparecer somente no campo Dono.</p>
+<p>Um exemplo de um arquivo executavel com a propriedade SUID é o arquivo <em>/usr/bin/passwd</em>.</p>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ ls -lah /usr/bin/passwd
+-rwsr-xr-x 1 root root 63K Feb  4 09:31 /usr/bin/passwd
+</code></pre>
+<p>Ou seja, quando executamos o comando passwd com qualquer usuário normal, o processo é executado com ID do usuário root (como se o usuário root tivesse executado o comando passwd), pois somente o usuário root tem permissão para alterar o arquivo /etc/passwd.</p>
+<h4 id="aplicando-o-suid"><a class="header" href="#aplicando-o-suid">Aplicando o SUID</a></h4>
+<h4 id="formato-literal"><a class="header" href="#formato-literal">Formato Literal</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod u+s arquivo.txt
+lucashe4rt@He4rt-PC:~$ ls -lah arquivo.txt
+-rws-----x 1 root root 0 Mar 17 21:57 arquivo.txt
+</code></pre>
+<h4 id="formato-octal-4"><a class="header" href="#formato-octal-4">Formato Octal (4)</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod 4750 arquivo.txt
+lucashe4rt@He4rt-PC:~$ ls -lah arquivo.txt
+-rwsr-x--- 1 root root 0 Mar 17 21:57 arquivo.txt
+</code></pre>
+<p>No exemplo acima nós atribuimos a propriedade SUID (4), seguido de todas as permissões para o dono (7), leitura e execução para o grupo (5) e nenhuma permissão para os outros usuários (0).</p>
+<h4 id="retirando-o-suid"><a class="header" href="#retirando-o-suid">Retirando o SUID</a></h4>
+<h4 id="formato-literal-1"><a class="header" href="#formato-literal-1">Formato Literal</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod u-s arquivo.txt
+lucashe4rt@He4rt-PC:~$ ls -lah arquivo.txt
+-rwxr-x--- 1 root root 0 Mar 17 21:57 arquivo.txt
+</code></pre>
+<h4 id="formato-octal"><a class="header" href="#formato-octal">Formato Octal</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod 0750 arquivo.txt
+lucashe4rt@He4rt-PC:~$ ls -lah arquivo.txt
+-rwxr-x--- 1 root root 0 Mar 17 21:57 arquivo.txt
+</code></pre>
+<blockquote>
+<h3 id="sgid-set-group-id"><a class="header" href="#sgid-set-group-id"><span id="sgid"> SGID (Set Group ID) </span></a></h3>
+</blockquote>
+<p>O <strong>SGID</strong> E o SUID tem a mesma função porém o <strong>SGID</strong> quando é aplicado em um diretório, os novos arquivos que são criados dentro do diretório assumem o mesmo ID de Grupo do diretório com a propriedade SGID aplicado.</p>
+<p>A permissão de acesso especial <em>SGID</em> pode aparecer somente no campo Grupo.</p>
+<p>Por exemplo, se no diretório <em>home</em> de algum usuário pertencer ao grupo "noobs" e ter o <em>SGID</em> habilitado, todos os arquivos dentro da <em>home</em> do usuário serão criados com o grupo "noob".</p>
+<h4 id="aplicando-o-sgid"><a class="header" href="#aplicando-o-sgid">Aplicando o SGID</a></h4>
+<h4 id="formato-literal-2"><a class="header" href="#formato-literal-2">Formato Literal</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod g+s Desktop/
+lucashe4rt@He4rt-PC:~$ ls -lah Desktop/
+drwxrwsr-x  2 lucashe4rt lucashe4rt 4.0K Mar 15 17:29 .
+</code></pre>
+<p><em>Obs: como sabemos o caractér ponto (<strong>.</strong>) representa o diretório corrente, então como estamos listando o conteúdo de desktop o ponto significa o diretório desktop.</em></p>
+<h4 id="formato-octal-2"><a class="header" href="#formato-octal-2">Formato Octal (2)</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod 2750 Desktop/
+lucashe4rt@He4rt-PC:~$ ls -lah Desktop/
+drwxr-s---  2 lucashe4rt lucashe4rt 4.0K Mar 15 17:29 .
+</code></pre>
+<p>No exemplo acima nós atribuimos a propriedade SGID (2), seguido de todas as permissões para o dono (7), leitura e execução para o grupo (5) e nenhuma permissão para os outros usuários (0).</p>
+<h4 id="retirando-o-sgid"><a class="header" href="#retirando-o-sgid">Retirando o SGID</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod g-s Desktop/
+lucashe4rt@He4rt-PC:~$ ls -lah Desktop/
+drwxr-x---  2 lucashe4rt lucashe4rt 4.0K Mar 15 17:29 .
+</code></pre>
+<blockquote>
+<h3 id="sticky-sticky-bit"><a class="header" href="#sticky-sticky-bit"><span id="sticky"> Sticky (Sticky bit) </span></a></h3>
+</blockquote>
+<p>A propriedade <strong>Sticky</strong>, em arquivos executaveis, faz com que o sistema mantenha uma imagem do programa em memória depois que o programa finalizar. Isso aumenta o desempenho, pois é feito um cache em memória então da próxima que o programa for executado será carregado mais rápido.</p>
+<p>Em diretórios, a propriedade Sticky impede que outros usuários deletem ou renomeam arquivos dos quais não são donos, isto normalmente é utilizado para aumentar a segurança, pois o diretório estará em modo de somente incrementação assim só o dono do arquivo tem permissão para deletar, mover, renomear os arquivos dentro de um diretório com a propriedade Sticky aplicada.</p>
+<p>A permissão especial Sticky pode ser especificada somente no campo outros usuários das permissões de acesso.</p>
+<p>Um exemplo é o diretório <em>/tmp</em>, onde todos os usuários devem ter acesso para que possam criar seus programas temporarios, mas não podem apagar os arquivos de outros usuários.</p>
+<p>Desta forma é uma boa prática aplicar essa propriedade no diretório <em>/tmp</em> visando a segurança.</p>
+<h4 id="aplicando-sticky"><a class="header" href="#aplicando-sticky">Aplicando Sticky</a></h4>
+<h4 id="formato-literal-t"><a class="header" href="#formato-literal-t">Formato Literal (t)</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod o+t /tmp/
+lucashe4rt@He4rt-PC:~$ ls -lah /tmp/
+drwxrwxrwt 19 root       root        460 Mar 22 14:35  .
+</code></pre>
+<h4 id="formato-octal-1"><a class="header" href="#formato-octal-1">Formato Octal (1)</a></h4>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod 1777 /tmp/
+lucashe4rt@He4rt-PC:~$ ls -lah /tmp/
+drwxrwxrwt 19 root       root        460 Mar 22 14:35  .
+</code></pre>
+<p>No exemplo acima nós atribuimos a propriedade Sticky (1), seguido de todas as permissões para o dono, grupo e outros usuários respectivamente (777).</p>
+<h5 id="retirando-sticky"><a class="header" href="#retirando-sticky">Retirando Sticky</a></h5>
+<pre><code class="language-console">lucashe4rt@He4rt-PC:~$ sudo chmod o-t /tmp/
+lucashe4rt@He4rt-PC:~$ ls -lah /tmp/
+drwxrwxrwx 19 root       root        460 Mar 22 14:35  .
+</code></pre>
+<hr />
+<h2 id="referências-9"><a class="header" href="#referências-9">Referências</a></h2>
+<p><a href="http://robertors.blogspot.com/2006/09/linux-permisses-de-acesso-especiais.html">Roberto's Blog - Linux - Permissões de Acesso Especiais</a><br>
+<a href="https://www.guiafoca.org/cgs/guia/iniciante/ch11s05.html">Guia Foca Linux - Permissões de Acesso Especiais</a></p>
+<h2 id="autores-7"><a class="header" href="#autores-7">Autores</a></h2>
+<ul>
+<li><strong>Lucas Silva (LucasHe4rt)</strong> - <em>Back-end Developer &amp; Member of He4rt Developers</em> - <a href="https://twitter.com/lucashe4rt">Twitter</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Redes - Linux4Noobs</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Intro</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Open source</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../1-OpenSource/1-Distros.html"><strong aria-hidden="true">1.1.</strong> Distros</a></li><li class="chapter-item expanded "><a href="../1-OpenSource/2-Aplicativos.html"><strong aria-hidden="true">1.2.</strong> Aplicativos</a></li><li class="chapter-item expanded "><a href="../1-OpenSource/3-Licenças.html"><strong aria-hidden="true">1.3.</strong> Licenças</a></li><li class="chapter-item expanded "><a href="../1-OpenSource/4-TIC.html"><strong aria-hidden="true">1.4.</strong> TIC</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Linha de comando</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../2-LinhaDeComando/1-Básico.html"><strong aria-hidden="true">2.1.</strong> Básico</a></li><li class="chapter-item expanded "><a href="../2-LinhaDeComando/2-Comandos.html"><strong aria-hidden="true">2.2.</strong> Comandos</a></li><li class="chapter-item expanded "><a href="../2-LinhaDeComando/3-Navegação.html"><strong aria-hidden="true">2.3.</strong> Navegação</a></li><li class="chapter-item expanded "><a href="../2-LinhaDeComando/4-Mover.html"><strong aria-hidden="true">2.4.</strong> Mover</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Linha de comando avançado</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../3-LinhaDeComandoAvançado/1-Arquivamento.html"><strong aria-hidden="true">3.1.</strong> Arquivamento</a></li><li class="chapter-item expanded "><a href="../3-LinhaDeComandoAvançado/2-Dados.html"><strong aria-hidden="true">3.2.</strong> Dados</a></li><li class="chapter-item expanded "><a href="../3-LinhaDeComandoAvançado/3-ScriptsSimples.html"><strong aria-hidden="true">3.3.</strong> Scripts Simples</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Sistemas Operacionais</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../4-SistemasOperacionais/1-CicloDeVida.html"><strong aria-hidden="true">4.1.</strong> Ciclo de Vida</a></li><li class="chapter-item expanded "><a href="../4-SistemasOperacionais/2-ComponentesDeUmComputador.html"><strong aria-hidden="true">4.2.</strong> Componentes de um computador</a></li><li class="chapter-item expanded "><a href="../4-SistemasOperacionais/3-Armazenamento.html"><strong aria-hidden="true">4.3.</strong> Armazenamento</a></li><li class="chapter-item expanded "><a href="../4-SistemasOperacionais/4-Redes.html" class="active"><strong aria-hidden="true">4.4.</strong> Redes</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Segurança</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../5-Segurança/1-Usuários.html"><strong aria-hidden="true">5.1.</strong> Usuários</a></li><li class="chapter-item expanded "><a href="../5-Segurança/2-Grupos.html"><strong aria-hidden="true">5.2.</strong> Grupos</a></li><li class="chapter-item expanded "><a href="../5-Segurança/3-Manipulação.html"><strong aria-hidden="true">5.3.</strong> Manipulação</a></li><li class="chapter-item expanded "><a href="../5-Segurança/4-Permissões.html"><strong aria-hidden="true">5.4.</strong> Permissões</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Linux4Noobs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="linux-na-rede"><a class="header" href="#linux-na-rede">Linux Na Rede</a></h1>
+<h2 id="protocolo-tcpip"><a class="header" href="#protocolo-tcpip">Protocolo TCP/IP</a></h2>
+<p>O TPC/IP é o protocolo padrão de comunicação padrão entre computadores, existem duas versões deste protocolo:</p>
+<ul>
+<li>
+<p>IPv4: Utiliza uma estrutura de endereço formada por 4 octetos contendo números de 0 a -255. Exemplo: 192.168.0.1.</p>
+</li>
+<li>
+<p>IPv6: Utiliza uma estrutura de 128 bits, com notação em Hexadecimal.</p>
+</li>
+</ul>
+<p>Agora vamos falar um pouco sobre o modelo OSI contra o TCP/IP</p>
+<p><img src="https://www.dltec.com.br/blog/wp-content/uploads/2019/02/osi-tcp-ip.png" alt="OSITCP" /></p>
+<p>Do lado direito dessa imagem nos temos o modelo de arquitetura de redes que é o modelo OSI, esse modelo prevê camadas de redes. A ideia é que cada camada forneça serviços de redes para a camada superior, a trilha de protocolo TCP/IP implementou esse modelo de maneira mais simples, agora vamos falar um pouco mais sobre cada uma dessas camadas.</p>
+<h2 id="parte-eletrica-ou-otica"><a class="header" href="#parte-eletrica-ou-otica">Parte eletrica ou otica</a></h2>
+<p>É responsavel por manter um fluxo de bits de forma crua por algum meio, como um cabo de rede.</p>
+<h2 id="interface-com-a-rede"><a class="header" href="#interface-com-a-rede">Interface com a Rede</a></h2>
+<p>Geralmente aqui nos vamos ter um protocolo para a troca de dados(Ethernet).</p>
+<h2 id="protocolo-ip"><a class="header" href="#protocolo-ip">Protocolo IP</a></h2>
+<p>Vai definir os endereços de rede dos dispositivos ligados a essa rede e a forma de como um pacote de dados vai de um remetente para um destinatario.</p>
+<h2 id="transporte"><a class="header" href="#transporte">Transporte</a></h2>
+<p>Aqui trabalham os protocolos de transporte das informações, que é responsavel por como os pacotes são enviados de um remetente para um destinatário. O TCP/IP tem dois protocolos de transporte, o TCP e o UDP.</p>
+<h2 id="aplicação"><a class="header" href="#aplicação">Aplicação</a></h2>
+<p>É nessa camada que os protocolos das aplicações vão trabalhar, como HTTP e etc. Esses protocolos de aplicações dependendo do tipo de comunição que precisam, vão fazer um uso de um protocolo de transporte melhor para as suas necessidades, vamos falar disso agora.</p>
+<h1 id="camadas-do-tcpip"><a class="header" href="#camadas-do-tcpip">Camadas do TCP/IP</a></h1>
+<p><img src="https://infotecnews.com.br/wp-content/uploads/2017/01/camada-tcpip-osi-1.jpg" alt="TCP/IP" /></p>
+<p>Aqui estão as camadas do TCP/IP e os seus protocolos, vamos falar um pouco mais de cada um.</p>
+<h2 id="rede"><a class="header" href="#rede">Rede</a></h2>
+<ul>
+<li>
+<p>ETHERNET: Ethernet é uma arquitetura de interconexão pare redes locais, baseada no envio de pacotes. Ela define cabeamento e sinais elétricos para a camada física em formato de pacotes e protocolos para a subcamada de controle de acesso ao meio(MAC). Desde os anos 90 ela vem sendo a tecnologia de LAN mais amplamente utilizada e tem tomado grande parte do espaço de outros padrões de rede que vamos citar a seguir.</p>
+</li>
+<li>
+<p>Token Ring: Token Ring é um protocolo de rede que opera na camada rede do protocolo TCP/IP. Usa um token, que consiste em uma trama de três bytes,que circula numa topologia em anel em que as estações devem aguardar a sua recepção para transmitir, a transmissão ocorre durante uma pequena janela de tempo, e apenas por quem detém o Token.</p>
+</li>
+<li>
+<p>Frame Relay: É uma tecnologia de comunicação de dados usada para transmitir da maneira rápida e barata(qb) a informação digital através de uma rede de dados, dividindo essas informações em frames a um ou muitos destinos de um end-point.</p>
+</li>
+<li>
+<p>ATM: É projetado para unificar as telecomunicações e as redes de computadores. Ela foi projetada para uma rede que deve manipular tanto tráfego tradicional de dados de altas taxas de transferência, e conteúdo de baixa latência e de tempo real com voz e vídeo.</p>
+</li>
+</ul>
+<h2 id="internet"><a class="header" href="#internet">Internet</a></h2>
+<ul>
+<li>
+<p>IP: É um protocolo de comunicação usado entre todas as máquinas em rede para encaminhamento de dados.</p>
+</li>
+<li>
+<p>ARP: É um padrão da telecomunicação, é usado para a resolução de enredereços(conversão) da camada de internet em endereços de camada enlace.</p>
+</li>
+<li>
+<p>ICMP: É um protocolo integrande do Protocolo IP, é utilizado para fornecer relatórios de erros à fonte original. Qualquer computador que utilize IP precisa aceitar as mensagens ICMP e alterar o seu comportamento de acordo com o erro relatado. Os gateways devem estar programados para enviar mensagens ICMP quando receberem datagramas que provoquem algum erro.</p>
+</li>
+</ul>
+<h2 id="transporte-1"><a class="header" href="#transporte-1">Transporte</a></h2>
+<p>TCP: É um dos protocolos de comunicação, da camada de transporte, que dão suporte a rede global Internet, verificando se os dados são enviados na sequência correta e sem erros via rede. É complementado pelo protocolo da Internet, normalmente chamado de, TCP/IP.</p>
+<p>UDP: É um protocolo simples, ele é descrito na RFC 768 e permite que a aplicação envia um datagrama encapsulado num pacote IPv4 ou IPv6 a um destino, porém sem qualquer tipo de garantia que o pacote chegue corretamente(ou de qualquer modo). O protocolo UDP não é confiável, caso garantias sejam necessárias, é preciso implementar uma série de estrutura de controle, tais como timeouts, retransmissões, acknowledgments, controle de fluxo, etc.</p>
+<h2 id="aplicação-1"><a class="header" href="#aplicação-1">Aplicação</a></h2>
+<p>HTTP: É um protocolo de comunicação utilizado para sistemas de informação de hipermídia, distribuídos e colaboraticos. Ele é a base para a comunicação e dados na World Wide Web.</p>
+<p>FTP: É um protocolo padrão independente de hardware sobre um modo de transferir arquivos/ficheiros e também é um programa de transfêrencia.</p>
+<p>SMTP: É o protocolo padrão de envio de mensagens de emails através da Internet entre dois dispositivos computacionais, definido na RFC 821.</p>
+<p>DNS: É um sistema hierárquico e distribuído de gestão de nomes para computadores, serviços ou qualquer máquina conectada à Internet ou a uma rede privada.</p>
+<hr />
+<p>Isso é o basico que você precisa pelo menos conhecer sobr redes, se quer aprender mais recomendo o canal <a href="https://www.youtube.com/user/ueribeiro/videos111111111">Certificação Linux</a></p>
+<p><a href="../5-Seguran%C3%A7a/1-Usu%C3%A1rios.html">Próximo</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../4-SistemasOperacionais/3-Armazenamento.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../5-Segurança/1-Usuários.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../4-SistemasOperacionais/3-Armazenamento.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../5-Segurança/1-Usuários.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
