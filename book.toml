@@ -1,0 +1,6 @@
+[book]
+authors = ["GMNDS"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Linux4Noobs"
