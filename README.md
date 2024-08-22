@@ -1,6 +1,8 @@
 # Introdução
 
-Esse é um tutorial de linux para iniciantes criado pelos autores abaixo, e apenas portado para usar o mdbook para facilitar a visualização, nenhum texto foi editado.
+Esse é um tutorial de linux para iniciantes criado pelos autores abaixo, e apenas portado para usar o mdbook para facilitar a visualização, nenhum ou muito pouco texto foi editado.
+
+[Linux4Noobs MDBOOK](https://gmnds.github.io/linux4noobs-mdbook/)
 
 ## Autores
 
